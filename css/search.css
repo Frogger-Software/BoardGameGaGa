@@ -1,0 +1,73 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.navbar{
+    background-color: #267EAF;
+
+}
+.titleLogo{
+    width: 300px;
+}
+
+.game-card{
+    width: 256px;
+    height: 256px;
+    margin: 10px;
+}
+.card-img-top{
+    height: 124px;
+    width: 100%;
+    padding: 10px;
+}
+.search-menu{
+    width: 100%;
+    max-width: 120px;
+}
+
+.search-bar{
+    width: 100%;
+    max-width: 400px;
+}
+.search-img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+.sidebar{
+    Max-height: 100%;
+    width: 25%;
+    max-width: 250px;
+    min-width: 200px;
+}
+
+.content{
+    width: 75%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #999999;  
+  background-color: #267EAF;
+}
+
+.secondary_color{
+    background-color: #38B8FC;
+}
+
+.tertiary_color{
+    background-color: #89BCC4;
+}
