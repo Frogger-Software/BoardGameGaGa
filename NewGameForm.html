@@ -1,0 +1,825 @@
+<!--
+Name: Cameron Robinson
+Date: 11.24.21
+Section: CSC 642 T9 Fall21
+
+This page is a a form to submit a new game to the BoardGameGaGa mock website built
+for CSC642 and SFSU for the Fall 2021 semester. It is build using bootstrap 5 and
+javascript.
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/cr_style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+    <title>Register a New Board Game</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #267EAF;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">This is a temp navbar with BG color set for reference</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+
+        <div class="container-sm py-5">
+          <div id="RegisterGame" class="mt-0">
+            <h3 class="h3 mb-4 text-center ">Register a new Board Game</h3>
+            <div id="SubmissionFormContainer" class="box shadow bg-white p-4">
+              <form action="" id="SubmissionForm" class="p-2 mb-3 form-validation" novalidate>
+                <div class="m-2 p-5">
+                  <h4 class="h4 mb-4 text-center">Tell us about the game</h4>
+
+                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                    <div class="px-5">
+                      <div class="needs-validation mb-3 col-md-6">
+                        <label for="gameTitle" class="form-label">Game Title <abbr class="required" title="required">*</abbr></label>
+                        <input type="text" class="form-control check-validity-event" id="gameTitle" placeholder="Captain Sonarr" pattern="[a-zA-Z0-9'\s]{1,40}" required>
+                        <div class="invalid-feedback">
+                          Please enter the game's title
+                        </div>
+                      </div>
+                      <div class="needs-validation mb-3 col-md-8">
+                        <label for="shortGameDescription" class="form-label">Short Game Description <abbr class="required" title="required">*</abbr></label>
+                        <textarea class="form-control check-validity-event" id="shortGameDescription" rows="2" placeholder="Torpedoes away! Hunt for your opponent's sub in this exciting, real-time team game. " pattern="[a-zA-Z0-9'\s]{1,256}" required></textarea>
+                        <div class="invalid-feedback">
+                          Please enter a valid short game description, max of 256 characters.
+                        </div>
+                      </div>
+                      <div class="mb-3 col-md-12">
+                        <label for="longGameDescription" class="form-label">Long Game Description</label>
+                        <textarea class="form-control optional-check-validity-event" id="longGameDescription" rows="8" placeholder="At the bottom of the ocean, no one will hear you scream!
+
+In Captain Sonar, you and your teammates control a state-of-the-art submarine and are trying to locate an enemy submarine in order to blow it out of the water before they can do the same to you. Every role is important, and the confrontation is merciless. Be organized and communicate because a captain is nothing without his crew: the Chief Mate, the Radio Operator, and the Engineer." pattern="[a-zA-Z0-9':,.!\s]{0,1024}"></textarea>
+                      </div>
+                      <div class="needs-validation mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="gameCategory" class="form-label">Game Catagory <abbr class="required" title="required">*</abbr></label>
+                        <select class="form-select check-validity-event" id="gameCategory" aria-label="Default select example" required>
+                          <option value="" selected>-- Not Selected --</option>
+                          <option value="Strategy">Strategy</option>
+                          <option value="Card Game">Card Game</option>
+                          <option value="Party Game">Party Game</option>
+                          <option value="Trivia">Trivia</option>
+                          <option value="Dice">Dice</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select a category
+                        </div>
+                      </div>
+                      <div class="needs-validation mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="numberOfPlayers" class="form-label">Number of Players <abbr class="required" title="required">*</abbr></label>
+                        <select class="form-select check-validity-event" id="numberOfPlayers" aria-label="Default select example" required>
+                          <option value="" selected>-- Not Selected --</option>
+                          <option value="1-2">1-2</option>
+                          <option value="1-3">1-3</option>
+                          <option value="1-4">1-4</option>
+                          <option value="2-3">2-3</option>
+                          <option value="2-4">2-4</option>
+                          <option value="3-4">3-4</option>
+                          <option value="4+">4+</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select the number of players
+                        </div>
+                      </div>
+                      <div class="needs-validation mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="averagePlayTime" class="form-label">Average Play Time <abbr class="required" title="required">*</abbr></label>
+                        <select class="form-select check-validity-event" id="averagePlayTime" aria-label="Default select example" required> 
+                          <option value= "" selected>-- Not Selected --</option>
+                          <option value="Less than 1 hour">Less than 1 hour</option>
+                          <option value="1 to 2 hours">1 to 2 hours</option>
+                          <option value="2 to 4 hours">2 to 4 hours</option>
+                          <option value="4 or more">4 or more</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          Please select an average play time
+                        </div>
+                      </div>
+                      <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="recommendedAge" class="form-label">Recommended Age</label>
+                        <select class="form-select optional-check-validity-event" id="recommendedAge" aria-label="Default select example">
+                          <option value="" selected>-- Not Selected --</option>
+                          <option value="3+">3+</option>
+                          <option value="4+">4+</option>
+                          <option value="5+">5+</option>
+                          <option value="6+">6+</option>
+                          <option value="8+">8+</option>
+                          <option value="10+">10+</option>
+                          <option value="12+">12+</option>
+                          <option value="14+">14+</option>
+                          <option value="16+">16+</option>
+                          <option value="18+">18+</option>
+                        </select>
+                      </div>
+                      <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="genre" class="form-label">Genre</label>
+                        <select class="form-select optional-check-validity-event" id="genre" aria-label="Default select example">
+                          <option value="" selected>-- Not Selected --</option>
+                          <option value="Roll and Move">Roll and Move</option>
+                          <option value="Cooperative">Cooperative</option>
+                          <option value="Deck Building">Deck Building</option>
+                          <option value="Secret Identity">Secret Identity</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="m-2 p-5">
+                  <h4 class="h4 mb-4 text-center">What does it look like?</h4>
+                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                    <div class="px-5">
+                      <div class="text-center">
+                        <label class="form-label">You may add up to 6 photos</label>
+                      </div>
+                      <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                          <div id="preview-item-0" class="col text-center">
+                          </div>
+                          <div id="preview-item-1" class="col text-center">
+                          </div>
+                          <div id="preview-item-2" class="col text-center">
+                          </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center">
+                          <div id="set-default-1" class="col justify-content-center text-center">
+                            <button id="set-default-button-0" type='button' onclick='setDefaultImageIndex(0)' class='btn btn-primary shadow' style="display: none;">Set as default</button>
+                          </div>
+                          <div id="set-default-2" class="col justify-content-center text-center">
+                            <button id="set-default-button-1" type='button' onclick='setDefaultImageIndex(1)' class='btn btn-primary shadow' style="display: none;">Set as default</button>
+                          </div>
+                          <div id="set-default-3" class="col justify-content-center text-center">
+                            <button id="set-default-button-2" type='button' onclick='setDefaultImageIndex(2)' class='btn btn-primary shadow' style="display: none;">Set as default</button>
+                          </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center py-3">
+                          <div id="preview-item-3" class="col text-center">
+                          </div>
+                          <div id="preview-item-4" class="col text-center">
+                          </div>
+                          <div id="preview-item-5" class="col text-center">
+                          </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center">
+                          <div id="set-default-4" class="col justify-content-center text-center">
+                            <button id="set-default-button-3" type='button' onclick='setDefaultImageIndex(3)' class='btn btn-primary shadow' style="display: none;">Set as default</button>
+                          </div>
+                          <div id="set-default-5" class="col justify-content-center text-center">
+                            <button id="set-default-button-4" type='button' onclick='setDefaultImageIndex(4)' class='btn btn-primary shadow' style="display: none;">Set as default</button>
+                          </div>
+                          <div id="set-default-6" class="col justify-content-center text-center">
+                            <button id="set-default-button-5" type='button' onclick='setDefaultImageIndex(5)' class='btn btn-primary shadow' style="display: none;">Set as default</button>
+                          </div>
+                        </div>
+                      </div>
+                      <fieldset class="form-group text-center py-3">
+                          <button type="button" class="btn btn-success shadow" onclick="openSelectionWindow()">Add Photo</button>
+                          <input id="fileSelector" class="form-control" type="file" style="display: none;" multiple/>
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="m-2 p-5">
+                  <h4 class="h4 mb-4 text-center">Who was it made by?</h4>
+                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                    <div class="px-5">
+                      <div class="mb-3 col-md-2 needs-validation">
+                        <label for="yearReleased" class="form-label">Year Released <abbr class="required" title="required">*</abbr></label>
+                        <input type="text" class="form-control check-validity-event" id="yearReleased" placeholder="2016" pattern="[1-2]{1}[0-9]{3}" required>
+                        <div class="invalid-feedback">
+                          Please enter the year the game was released
+                        </div>
+                      </div>
+                      <div class="mb-3 col-md-6 needs-validation">
+                        <label for="publisher" class="form-label">Publisher <abbr class="required" title="required">*</abbr></label>
+                        <input type="text" class="form-control check-validity-event" id="publisher" placeholder="Matagot" pattern="[a-zA-Z0-9']{1,40}" required>
+                        <div class="invalid-feedback">
+                          Please enter a game publisher
+                        </div>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="tags" class="form-label">Tags</label>
+                        <input type="text" class="form-control optional-check-validity-event" id="tags" placeholder="Role Playing, Simulation, Team-Based Game">
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="designers" class="form-label">Designers</label>
+                        <input type="text" class="form-control optional-check-validity-event" id="designers" placeholder=" Roberto Fraga, Yohan Lemonnier">
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="artists" class="form-label">Artists</label>
+                        <input type="text" class="form-control optional-check-validity-event" id="artists" placeholder="Ervin, Sabrina Tobal">
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-5 d-flex justify-content-end">
+                  <input class="btn btn-success shadow" type="button" value="Review Submission" onclick="attemptSubmitForm()">
+                </div>
+              </form>
+    
+            </div>
+            <div id="ReviewForm" class="box shadow bg-white p-4 hidden">
+                <div class="m-2 p-2">
+                  <h4 class="h4 mb-4 text-center">Does this all look correct?</h4>
+                </div>
+                <div class="m-2 py-2 px-5">
+                  
+                  <h4 class="h4 mb-4 text-leading">General Information</h4>
+
+                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                    <div class="px-5">
+                      <div class="mb-3 col-md-6">
+                        <label for="gameTitle" class="form-label">Game Title</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="gameTitle_data">Captain Sonarr</div>
+
+                      </div>
+                      <div class="mb-3 col-md-8">
+                        <label for="shortGameDescription" class="form-label">Short Game Description</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="shortGameDescription_data">Torpedoes away! Hunt for your opponent's sub in this exciting, real-time team game. </div>
+                      </div>
+                      <div class="mb-3 col-md-12">
+                        <label for="longGameDescription" class="form-label">Long Game Description</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="longGameDescription_data">
+                          At the bottom of the ocean, no one will hear you scream!
+
+                          In Captain Sonar, you and your teammates control a state-of-the-art submarine and are trying to locate an enemy submarine in order to blow it out of the water before they can do the same to you. Every role is important, and the confrontation is merciless. Be organized and communicate because a captain is nothing without his crew: the Chief Mate, the Radio Operator, and the Engineer.
+                        </div>
+                      </div>
+                      <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="gameCategory" class="form-label">Game Catagory</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="gameCategory_data">Strategy</div>
+                      </div>
+                      <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="numberOfPlayers" class="form-label">Number of Players</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0 col-sm-3" id="numberOfPlayers_data">4+</div>
+
+                      </div>
+                      <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="averagePlayTime" class="form-label">Average Play Time</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="averagePlayTime_data">1 to 2 hours</div>
+
+                      </div>
+                      <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="recommendedAge" class="form-label">Recommended Age</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0 col-sm-3" id="recommendedAge_data">14+</div>
+
+                      </div>
+                      <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
+                        <label for="genre" class="form-label">Genre</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="genre_data">Secret Identity</div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="ReviewImagesArea" class="m-2 p-5">
+                  <h4 class="h4 mb-4 text-leading">Images</h4>
+                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                    <div class="px-5">
+                      <div class="container">
+                        <div class="row align-items-center justify-content-center">
+                          <div id="review-preview-item-0" class="col text-center">
+                          </div>
+                          <div id="review-preview-item-1" class="col text-center">
+                          </div>
+                          <div id="review-preview-item-2" class="col text-center">
+                          </div>
+                        </div>
+                        <div class="row align-items-center justify-content-center py-3">
+                          <div id="review-preview-item-3" class="col text-center">
+                          </div>
+                          <div id="review-preview-item-4" class="col text-center">
+                          </div>
+                          <div id="review-preview-item-5" class="col text-center">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="m-2 p-5">
+                  <h4 class="h4 mb-4 text-leading">Publication</h4>
+                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                    <div class="px-5">
+                      <div class="mb-3 col-md-2">
+                        <label for="yearReleased" class="form-label">Year Released</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0 col-md-6" id="yearReleased_data">2016</div>
+                      </div>
+                      <div class="mb-3 col-md-4">
+                        <label for="publisher" class="form-label">Publisher</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="publisher_data">Secret Identity</div>
+                      </div>
+                      <div class="mb-3 col-md-12">
+                        <label for="tags" class="form-label">Tags</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="tags_data">Secret Identity</div>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="designers" class="form-label">Designers</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="designers_data">Secret Identity</div>
+                      </div>
+                      <div class="mb-3 col-md-6">
+                        <label for="artists" class="form-label">Artists</label>
+                        <div class="row border bg-light p-1 mx-1 gx-0" id="artists_data">Secret Identity</div>
+
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="mt-5 d-flex col justify-content-leading">
+                      <button type="button" class="btn btn-secondary shadow" onclick="backToForm()">Back</button>
+                    </div>  
+                    <div class="mt-5 d-flex col justify-content-end">
+                      <button type="button" class="btn btn-success shadow" onclick="attemptSubmitData()">Submit Game</button>
+                    </div>  
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    <div class="modal" id="registerModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 40px;">
+          <div class="modal-body px-4 py-5">
+            <div class="p-3 shadow text-center" style="border-radius: 10px; background-color: #89BCC4;">
+              <h4>Register</h4>
+            </div>
+          </div>
+          <div class="px-4 pb-5">
+            <form id="RegisterForm" class="pb-5">
+              <div>
+                <label for="username_register" class="form-label">Username</label>
+                <input type="text" class="form-control check-validity-event" id="username_register" pattern="[a-zA-Z0-9]{1,32}" required>
+              </div>
+              <br>
+              <div>
+                <label for="email_register" class="form-label">Email</label>
+                <input type="password" class="form-control check-validity-event" id="email_register" required>
+              </div>
+              <br>
+              <div>
+                <label for="password_register" class="form-label">Password</label>
+                <input type="password" class="form-control check-validity-event" id="password_register" pattern="[a-zA-Z0-9#?!@$ %^&*-]{1,32}" required>
+              </div>
+              <br>
+              <div>
+                <div class="form-check d-flex align-items-center justify-content-center">
+                  <input class="form-check-input check-validity-event mx-2" type="checkbox" value="" id="flexCheckDefault" required>
+                  <label class="form-check-label" for="flexCheckDefault">
+                       I agree to the <abbr class="dummyLink" title="Dummy link">Terms and Conditions</abbr>
+                  </label>
+                </div>
+              </div>
+            </form>
+
+            <div class="py-5 container justify-content-center col-md-6">
+              <div class="row py-1">
+                  <button type="button" class="btn btn-primary" onclick="register()">Register</button>
+              </div>
+              <div class="row py-1">
+                <button type="button" class="btn btn-secondary" onclick="swapRegisterToLogin()">Login</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="loginModal" tabindex="-1" aria-hidden="true" >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 40px;">
+          <div class="modal-body px-4 py-5">
+            <div class="p-3 shadow text-center" style="border-radius: 10px; background-color: #89BCC4;">
+              <h4>Login</h4>
+            </div>
+          </div>
+          <div class="px-4 pb-5">
+            <form id="LoginForm" class="pb-5">
+              <label for="username_login" class="form-label">Username</label>
+              <input type="text" class="form-control check-validity-event" id="username_login" pattern="[a-zA-Z0-9]{1,32}" required>
+              <br>
+              <label for="password_login" class="form-label">Password</label>
+              <input type="password" class="form-control check-validity-event" id="password_login" pattern="[a-zA-Z0-9#?!@$ %^&*-]{1,32}" required>
+            </form>
+
+            <div class="py-5 container justify-content-center col-md-6">
+              <div class="row py-1">
+                  <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+              </div>
+              <div class="row py-1">
+                <button type="button" class="btn btn-secondary" onclick="swapLoginToRegister()">Register</button>
+              </div>
+
+            </div>
+            <div class="pb-3 container justify-content-center col-md-6">
+              <div class="row">
+                <button type="button" class="btn btn-secondary">Forgot Password?</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 40px;">
+          <div class="modal-body px-4 py-5">
+            <div class="p-2 shadow text-center" style="border-radius: 10px; background-color: #89BCC4;">
+              <h4>Success</h4>
+            </div>
+          </div>
+          <div class="px-4 pb-1">
+
+            <p class="text-center">Your submission will be reviewed by our admins before being visible to others. This usually takes around 24 hours.</p>
+
+            <div class="pt-5 pb-1 container justify-content-center col-md-3">
+              <div class="row py-1">
+                <button type="button" class="btn btn-secondary" onclick="userExitedGameSubmission()">OK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   
+    <footer class="footer mt-auto py-3 navbar-dark" style="background-color: #267EAF;">
+      <div class="container">
+        <span class="text-light">Place sticky footer content here.</span>
+      </div>
+    </footer>
+
+    
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+   
+    <script>
+
+      var numberOfImages = 0;
+      var images = [];
+      var primaryImageIndex = 0;
+      
+      var registerModal = null;
+      var loginModal = null;
+      var successModal = null;
+
+      let validationDivs = null;
+
+      // This function is called by the form submission button. When the user attempts
+      // to submit the form it first checks if all required fields are valid, if so it
+      // coppies the data to the review page and then swaps which view is currently shown
+      // to the user
+      // 
+      // if the data is invalid it sets the tag to display all possible errors on the page.
+      function attemptSubmitForm() {
+        
+        if(document.getElementById('SubmissionForm').checkValidity()) {
+
+          copyData()
+
+          document.getElementById('SubmissionFormContainer').classList.add('hidden')
+          document.getElementById('ReviewForm').classList.remove('hidden')
+        }
+        else {
+          validationDivs.forEach(function (div) {
+            div.classList.add('was-validated')
+          })
+        }
+
+        setTimeout(function () {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }, 0);
+      }
+
+      // This function is called by the buttons for setting the default image.
+      // it updates the index of the default image and then loops through the 
+      // possible images and hides or enables their button.
+      function setDefaultImageIndex(index) {
+        primaryImageIndex = index
+        for(let i = 0; i < images.length; i++) {
+
+          document.getElementById("set-default-button-" + i).style.display = "none"; 
+          if(i != primaryImageIndex) {
+            document.getElementById("set-default-button-" + i).style.display = "block"; 
+          }
+        }
+      }
+
+      // This function is called when the page is loaded, it loops through all form 
+      // fields and sets up an event listener for when the data is updated. The 
+      // listener function will then either set the field to validated or in the case
+      // of optional fields remove the validated statement if needed.
+      function setValidatorEvents() {
+
+        let check_validity_inputs = document.querySelectorAll('.check-validity-event')
+        check_validity_inputs = Array.from(check_validity_inputs)
+        for(let input of check_validity_inputs) {
+
+          input.addEventListener('change', (event) => {
+
+                input.parentNode.classList.add('was-validated')
+          })
+        }
+
+        let optional_validity_inputs = document.querySelectorAll('.optional-check-validity-event')
+        optional_validity_inputs = Array.from(optional_validity_inputs)
+        for(let input of optional_validity_inputs) {
+
+            input.addEventListener('change', (event) => {
+
+                if(input.checkValidity() === false || input.value !== "") {
+
+                    input.parentNode.classList.add('was-validated')
+                }
+                else {
+
+                    if(input.value === "") {
+                        input.parentNode.classList.remove('was-validated')
+                    }
+                }
+            })
+        }
+      }
+
+      // This function is called when the user successfully submits the data form.
+      // It loops through each form field, optional or not, and coppies the data
+      // over to the results verification page.
+      function copyData() {
+
+        let check_validity_inputs = document.querySelectorAll('.check-validity-event')
+        check_validity_inputs = Array.from(check_validity_inputs)
+        for(let input of check_validity_inputs) {
+
+          input.parentNode.classList.add('was-validated')
+          let reviewDataHolder = document.getElementById(input.id + "_data")
+          if(reviewDataHolder) {
+            reviewDataHolder.innerHTML = input.value
+          }
+        }
+
+        let optional_validity_inputs = document.querySelectorAll('.optional-check-validity-event')
+        optional_validity_inputs = Array.from(optional_validity_inputs)
+        for(let input of optional_validity_inputs) {
+
+          if(input.checkValidity() === false || input.value !== "") {
+
+              input.parentNode.classList.add('was-validated')
+
+              let reviewDataHolder = document.getElementById(input.id + "_data")
+
+              if(reviewDataHolder) {
+                reviewDataHolder.innerHTML = input.value
+                reviewDataHolder.parentNode.classList.remove("hidden")
+              }
+              else {
+                console.log(input.id)
+              }
+          }
+          else {
+
+              if(input.value === "") {
+                  input.parentNode.classList.remove('was-validated')
+                  let reviewDataHolder = document.getElementById(input.id + "_data")
+                  if(reviewDataHolder) {
+                    reviewDataHolder.parentNode.classList.add("hidden")
+                  }
+              }
+          }
+
+          let reviewImagesArea = document.getElementById('ReviewImagesArea')
+          reviewImagesArea.classList.add("hidden")
+
+          // If there are images to copy do that here.
+          if(images.length > 0) {
+            reviewImagesArea.classList.remove("hidden")
+          
+            // Copy the primary image to the first location.
+            let html = "<img src='" + images[primaryImageIndex] + "' class='img-thumbnail col' style='height: auto; width: auto;'>"
+            document.getElementById("review-preview-item-0").innerHTML = html
+
+            for(let i = 0, divIDNum = 1; i < images.length; i++) {
+
+              // Copy every other index to the subsiquent locations.
+              if(i !== primaryImageIndex) {
+
+                let html = "<img src='" + images[i] + "' class='img-thumbnail col' style='height: auto; width: auto;'>"
+                document.getElementById("review-preview-item-" + divIDNum).innerHTML = html
+                divIDNum++
+              }
+            }
+          }
+        }
+      }
+
+      function openSelectionWindow() {
+        document.getElementById("fileSelector").click()
+      }
+
+    // load images is a listener function that is called when the user loads files
+    // to the web page.
+    function loadImages(event) {
+
+      // If the user attempts to load more than 6 images ignore the response.
+      if(numberOfImages >= 6) {
+        return
+      }
+
+      if (window.File && window.FileList && window.FileReader) {
+          var files = event.target.files; //FileList object
+
+          // for each image uploaded
+          for (let i = 0; i < files.length; i++) {
+
+            // For every item after the 6th ignore 
+            if(i > 5) {
+              break
+            }
+
+            // get the image and make sure it is an actual image.
+            var file = files[i];
+            if (!file.type.match('image')) continue;
+              
+            // create a file reader and set it up to load the data.
+            var picReader = new FileReader();
+            picReader.addEventListener('load', function (event) {
+
+                // When the data is finished loading this callback is fired.
+
+                // get the data
+                var picFile = event.target;
+                images = images.concat(picFile.result) // append the image to the array
+
+                // create a new image container with the image data.
+                let html = "<img src='" + picFile.result + "' class='img-thumbnail col' style='height: auto; width: auto;'>"
+
+                // For every item past the first we set the "set default" button to visible
+                if(numberOfImages > 0) {
+                  document.getElementById("set-default-button-" + numberOfImages).style.display = "block"; 
+                }
+                // set the image html to visible on the page.
+                document.getElementById("preview-item-" + numberOfImages).innerHTML += html
+                numberOfImages += 1;
+
+            });
+
+            // tell the image reader to load the file, when finished will call callback above.
+            picReader.readAsDataURL(file);
+          }
+
+          document.getElementById("fileSelector").value = ""
+        } else {
+            console.log('Browser not support');
+        }
+    }
+
+    // This function is called on page load it sets up the event listeners for the different
+    // required items and loads the global required data.
+    window.onload = function(){
+        
+        //Check File API support
+        if(window.File && window.FileList && window.FileReader)
+        {
+          // Set up listener for when files are loaded to the webpage
+          var filesInput = document.getElementById("fileSelector");
+          filesInput.addEventListener("change", loadImages)
+        }
+        else {
+          console.log("Your browser does not support File API");
+        }
+
+        // For every form item set up a listener to update its validitiy state
+        // to display an error if needed.
+        setValidatorEvents()
+
+        // init global list of all parent divs for form items that require validation. 
+        validationDivs = Array.from(document.querySelectorAll('.needs-validation'))
+
+        // load the modal views into global variables.
+        registerModal = new bootstrap.Modal(document.getElementById('registerModal'))
+        loginModal = new bootstrap.Modal(document.getElementById('loginModal'))
+        successModal = new bootstrap.Modal(document.getElementById('successModal'), {backdrop: "static", keyboard: false})
+    }
+
+    // Called from the verification page when the submit button is pressed. This function 
+    // more or less performs our lazy-registration. If the user is not logged in it displays
+    // the registration modal, if the user is logged in it displays the successful submission
+    // modal.
+    function attemptSubmitData() {
+      if(sessionStorage.getItem("loggedIn")) {
+        successModal.show()
+      }
+      else {
+        registerModal.show()
+      }
+    }
+
+    // Called from the login modal when the login button is clicked. Checks for 
+    // field validity and either displays the erroed fields or "logs the user in"
+    function login() {
+
+      let registerForm = document.getElementById('LoginForm')
+      if(registerForm.checkValidity()) {
+        sessionStorage.setItem("loggedIn", true)
+        loginModal.hide()
+        registerModal.hide()
+      }
+      else {
+
+        let elements = registerForm.getElementsByClassName('check-validity-event')
+        for(let item of elements) {
+          item.parentNode.classList.add('was-validated')
+        }
+      }
+    }
+
+    // Called by the register modal when the register button is clicked. Checks 
+    // for field validity and either displayes the errors or "logs the user in"
+    function register() {
+
+      let registerForm = document.getElementById('RegisterForm')
+      if(registerForm.checkValidity()) {
+        sessionStorage.setItem("loggedIn", true)
+        loginModal.hide()
+        registerModal.hide()
+      }
+      else {
+
+        let elements = registerForm.getElementsByClassName('check-validity-event')
+        for(let item of elements) {
+          item.parentNode.classList.add('was-validated')
+        }
+      }
+    }
+
+    // Called from the login modal to swap to the register modal
+    function swapLoginToRegister() {
+      loginModal.hide()
+      registerModal.show()
+    }
+
+    // Called from the register modal to swap to the login modal
+    function swapRegisterToLogin() {
+      loginModal.show()
+      registerModal.hide()
+    }
+    
+    // Called from the results verification page to swap back to the data entry page.
+    function backToForm() {
+      document.getElementById('SubmissionFormContainer').classList.remove('hidden')
+      document.getElementById('ReviewForm').classList.add('hidden')
+
+      setTimeout(function () {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+          });
+        }, 0);
+    }
+
+    function userExitedGameSubmission() {
+      // TODO: swap user to different page on clicking OK
+    }
+
+    </script>
+  </body>
+</html>
+
+
+
+
+
+
