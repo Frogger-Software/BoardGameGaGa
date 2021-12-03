@@ -5,7 +5,7 @@ var catagoryDefaultText = 'All';
 
 var GenreSelector = '#Genre-Filter'
 
-var SearchResults = '#searchResults'
+var top5Games = '#top5Games'
 var SearchResultText = '#resultsText'
 var SearchResultCount = 0;
 var DisplayedResults = 0;
@@ -183,7 +183,7 @@ $().ready(function () {
   })
 
   $.each(results, function (number, game) {
-    $(SearchResults).append($(
+    $(top5Games).append($(
       '<div class="card my-3 game-card">' +
       '<img src="' + game.Image + '" class="card-img-top" alt="...">' +
       '<div class="card-body">' +
@@ -194,6 +194,9 @@ $().ready(function () {
       '</div>'
     ))
     DisplayedResults++
+    // if(DisplayedResults == 5){
+    //     break;
+    // }
   });
   let SearchText = SearchBarString.length > 0 ? 'for "' + SearchBarString + '"' : ""
   $(SearchResultText).append($(
