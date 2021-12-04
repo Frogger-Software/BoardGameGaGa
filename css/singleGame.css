@@ -1,0 +1,187 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+    background-color: #F0EDE8;	
+}
+
+.navbar{
+    background-color: #267EAF;
+
+}
+.titleLogo{
+    width: 300px;
+}
+
+.game-card{
+    width: 256px;
+    height: 256px;
+    margin: 10px;
+}
+.card-img-top{
+    height: 124px;
+    width: 100%;
+    padding: 10px;
+}
+.search-menu{
+    width: 100%;
+    max-width: 120px;
+}
+
+.search-bar{
+    width: 100%;
+    max-width: 400px;
+}
+.search-img {
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+  }
+.sidebar{
+    Max-height: 100%;
+    width: 25%;
+    max-width: 250px;
+    min-width: 200px;
+}
+
+.content{
+    width: 75%;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #999999;  
+  background-color: #267EAF;
+}
+
+.secondary_color{
+    background-color: #38B8FC;
+}
+
+.tertiary_color{
+    background-color: #89BCC4;
+}
+
+.detailHeader{
+	height: 313px;
+}
+.gd_Pic{
+	border: 1px solid #FFFFFF;
+	max-width: 100%; 
+	width: auto;
+	object-fit: contain;
+	margin:auto;
+	height: inherit;
+}
+.pageTitle{
+	
+	justify-content: center;
+	font-size: small;
+	text-align: justify;
+}
+
+.gd_Title {
+	justify-content: center;
+	font-size: xx-large;
+	text-align: center;
+	color: #267EAF;	
+}
+
+.hiPanel{
+	background-color: #ffffff;
+	border-radius:8px;
+	box-shadow: 4px 4px 2px rgba(0,0,0,0.4);
+	padding: 5px;
+	height:auto;
+	width:fit-content;
+}
+.playerPanel{
+	height: 100%;
+}
+.gd_iconGroup{
+	margin: 5px;
+	min-width: 120px;
+}
+.gd_icon{
+	min-height: 80%;
+	object-fit: contain;
+}
+.gd_iconLabel{
+	justify-content:center;
+	color: #267EAF;
+	font-size: large;
+}
+.rankBox {
+	background-color: #267EAF;	
+	font-size: small;
+	color: #FFFFFF;	
+	border-radius:12px;
+	box-shadow: 4px 4px 2px rgba(0,0,0,0.4);
+	padding: 5px;
+	margin:5px;
+	flex-grow:1;
+	min-width: 80px;
+}
+.rankDiv {
+	flex-grow:2;
+	min-width: 160px
+}
+.rankBox label {
+	justify-content: center;
+	text-align: center;	
+	align-items: stretch;
+}
+.rbTitle {
+}
+.rbDetail {
+	font-size: xx-large;
+}
+.publicationFrame {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 5px;
+	margin-top: 5px;
+}
+.pubLabel {
+	text-align:left;
+}
+.pubData {
+	text-align:right;
+	color: #267EAF;
+}
+.gd_Description{
+	text-align:justify;
+	color: #267EAF;
+	font-size: large;
+	
+}
+
+.cvrImgPanel{
+	max-width: 100%;
+	width:fit-content;
+	height: inherit;
+}
+@include media-breakpoint-up(sm){
+	.gd_pic{
+		margin:auto;
+		height: 200px;
+	}
+}
+
+
+
+
+
+
