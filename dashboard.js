@@ -162,11 +162,8 @@ $().ready(function () {
 
 
   let results = Games.filter(function (game) {
-    //console.log(SearchBarFilter, game.Genre, SearchBarFilter == -1, game.Genre == SearchBarFilter)
     let GenreFilter = SearchBarFilter == -1 ? true : game.Genre == SearchBarFilter
-    //console.log(game.Title, SearchBarString, game.Title.includes(SearchBarString))
     let StringFilter = game.Title.includes(SearchBarString);
-    //console.log(Math.floor(game.Price / 20), PriceSelectorArray.includes(Math.ceil(game.Price / 20)), PriceSelectorArray.includes(7) && game.Price > 120)
     let PriceFilter = PriceSelectorArray.includes(Math.ceil(game.Price / 20)) ||
       PriceSelectorArray.includes(7) && game.Price > 120 ||
       PriceSelectorArray.length == 0;
@@ -194,9 +191,6 @@ $().ready(function () {
       '</div>'
     ))
     DisplayedResults++
-    // if(DisplayedResults == 5){
-    //     break;
-    // }
   });
   let SearchText = SearchBarString.length > 0 ? 'for "' + SearchBarString + '"' : ""
   $(SearchResultText).append($(
