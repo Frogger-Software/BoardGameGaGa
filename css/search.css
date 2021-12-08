@@ -71,3 +71,11 @@ body {
 .tertiary_color{
     background-color: #89BCC4;
 }
+.heroBannerContainer{
+    padding: 30px;
+    justify-content: center;
+}
+.heroBanner{
+    margin: 20px;
+    width: 45%
+}
