@@ -19,7 +19,7 @@ javascript.
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/search.css">
-
+    <link rel="stylesheet" href="css/gameComparison.css">
   </head>
   <body>
     <form class="">
@@ -213,6 +213,226 @@ javascript.
   <div id="FooterLink"></div>
 
 
+    <div class="modal fade" id="gameComparisonModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen px-5 py-2">
+        <div class="modal-content container d-flex gameComparisonModalContent">
+          <div class="row justify-content-end pt-2 pe-2">
+            <button type="button" class="btn btn-secondary p-3 col-auto shadow text-center" data-bs-dismiss="modal" style="border-radius: 10px; background-color: #89BCC4;"><h4 class="mb-0">X</h4></button>
+          </div>
+          <div class="px-4 pb-2 row flex-fill d-flex container">
+            <div id="firstGameComparisonRow" class="row">
+              <div id="firstGameImageColumn" class="col-md-4 col-sm-6 container">
+                <div class="row align-items-start h-100 py-5">
+                  <div class="col">
+                    <img id="firstGameImage" src="img/meeples.jpg" class="img-fluid img-thumbnail">
+                  </div>
+                </div>
+              </div>
+              <div id="firstGameDataColumn" class="col-md-8 p-3 container">
+                <div class="row align-items-center py-5">
+                  <div class="col h-100">
+                    <div id="firstGameTitleRow" class="row justify-content-center">
+                      <div class="col-auto">
+                        <h3 id="firstGameTitle" class="gameTitleText">
+                          Ratatoille
+                        </h3>
+                      </div>
+                    </div>
+                    <div id="firstGameInfoRow" class="row justify-content-center my-2">
+                      <div class="col-10 container gameInfoContainer">
+                        <div class="row">
+                          <div class="col-3 p-2">
+                            <img id="firstGamePlayerIcon" src="img/Icon_Player_Green.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                          <div class="col-3 p-2">
+                            <img id="firstGameTimeIcon" src="img/Icon_Time.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                          <div class="col-3 p-2">
+                            <img id="firstGameAgeIcon" src="img/Icon_Age.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                          <div class="col-3 p-2">
+                            <img id="firstGameWeightIcon" src="img/Icon_Weight_Green.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-3 p-2 justify-content-center">
+                            <div class="text-center">
+                              <p id="firstGamePlayerText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                          <div class="col-3 p-2">
+                            <div class="text-center">
+                              <p id="firstGameTimeText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                          <div class="col-3 p-2">
+                            <div class="text-center">
+                              <p id="firstGameAgeText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                          <div class="col-3 p-2">
+                            <div class="text-center">
+                              <p id="firstGameWeightText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="firstGamePriceRatingRow" class="row justify-content-center my-2">
+                      <div class="col-10 gameInfoContainer"">
+                        <div class="row align-items-center justify-content-center h-100 py-2 px-2">
+                          <div id="firstGamePriceBox" class="col col-sm-4 px-3 mx-1 gameComparisonGreenBox">
+                            <div class="row text-center py-2" >
+                              <h5  class="gameComparisonWhiteText">
+                                Price
+                              </h5>
+                            </div>
+                            <div class="row text-center pb-2">
+                              <h3 id="firstGamePriceText" class="gameComparisonWhiteText">
+                                $37.99
+                              </h3>
+                            </div>
+                          </div>
+                          <div id="firstGameRatingBox" class="col col-sm-3 px-3 mx-1 gameComparisonBlueBox">
+                            <div class="row text-center py-2">
+                              <h5 class="gameComparisonWhiteText">
+                                Rating
+                              </h5>
+                            </div>
+                            <div class="row text-center pb-2">
+                              <h3 id="firstGameRatingText" class="gameComparisonWhiteText">
+                                5.6
+                              </h3>
+                            </div>
+                          </div>
+                          <div id="firstGameRankBox" class="col col-sm-4 px-3 mx-1 gameComparisonGreenBox">
+                            <div class="row text-center py-2">
+                              <h5 class="gameComparisonWhiteText">
+                                Rank
+                              </h5>
+                            </div>
+                            <div class="row text-center pb-2">
+                              <h3 id="firstGameRankText" class="gameComparisonWhiteText">
+                                10,097
+                              </h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="secondGameComparisonRow" class="row">
+              <div id="secondGameImageColumn" class="col-md-4 col-sm-6 container">
+                <div class="row align-items-start h-100 py-5">
+                  <div class="col">
+                    <img id="secondGameImage" src="img/meeples.jpg" class="img-fluid img-thumbnail">
+                  </div>
+                </div>
+              </div>
+              <div id="secondGameDataColumn" class="col-md-8 flex-fill px-3 container">
+                <div class="row align-items-center py-5">
+                  <div class="col">
+                    <div id="secondGamePriceRatingRow" class="row justify-content-center my-2">
+                      <div class="col-10 gameInfoContainer">
+                        <div class="row align-items-center justify-content-center h-100 py-2 px-2">
+                          <div id="secondGamePriceBox" class="col col-sm-4  px-3 mx-1 gameComparisonGreenBox">
+                            <div class="row text-center py-2">
+                              <h5 class="gameComparisonWhiteText">
+                                Price
+                              </h5>
+                            </div>
+                            <div class="row text-center pb-2">
+                              <h3 id="secondGamePriceText" class="gameComparisonWhiteText">
+                                $37.99
+                              </h3>
+                            </div>
+                          </div>
+                          <div id="secondGameRatingBox" class="col col-sm-3 px-3 mx-1 gameComparisonBlueBox">
+                            <div class="row text-center py-2">
+                              <h5 class="gameComparisonWhiteText">
+                                Rating
+                              </h5>
+                            </div>
+                            <div class="row text-center pb-2">
+                              <h3 id="secondGameRatingText" class="gameComparisonWhiteText">
+                                5.6
+                              </h3>
+                            </div>
+                          </div>
+                          <div id="secondGameRankBox" class="col col-sm-4 px-3 mx-1 gameComparisonGreenBox">
+                            <div class="row text-center py-2">
+                              <h5 class="gameComparisonWhiteText">
+                                Rank
+                              </h5>
+                            </div>
+                            <div class="row text-center pb-2" >
+                              <h3 id="secondGameRankText" class="gameComparisonWhiteText">
+                                10,097
+                              </h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="secondGameInfoRow" class="row justify-content-center my-2">
+                      <div class="col-10 container gameInfoContainer">
+                        <div class="row">
+                          <div class="col-3 p-2">
+                            <img id="secondGamePlayerIcon" src="img/Icon_Player_Green.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                          <div class="col-3 p-2">
+                            <img id="secondGameTimeIcon" src="img/Icon_Time.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                          <div class="col-3 p-2">
+                            <img id="secondGameAgeIcon" src="img/Icon_Age.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                          <div class="col-3 p-2">
+                            <img id="secondGameWeightIcon" src="img/Icon_Weight_Green.png" class="img-fluid" alt="Game Comparison 1">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-3 p-2 justify-content-center">
+                            <div class="text-center">
+                              <p id="secondGamePlayerText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                          <div class="col-3 p-2">
+                            <div class="text-center">
+                              <p id="secondGameTimeText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                          <div class="col-3 p-2">
+                            <div class="text-center">
+                              <p id="secondGameAgeText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                          <div class="col-3 p-2">
+                            <div class="text-center">
+                              <p id="secondGameWeightText">1 - 5 Players</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="secondGameTitleRow"  class="row justify-content-center">
+                      <div class="col-auto">
+                        <h3 id="secondGameTitle" class="gameTitleText">
+                          Ratatoille
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -223,5 +443,27 @@ javascript.
     <script src="js/GameData.js"></script>
     <script src="js/CategoryData.js"></script>
     <script src="js/Footer.js"></script>
+
+    <script>
+      //Temp run on load function to display modal for easy building
+      (()=>{
+        let comparisonModal = new bootstrap.Modal(document.getElementById('gameComparisonModal'))
+        comparisonModal.show()
+      })()
+
+      /***
+       * IDs to use to update game comparison page, this list only shows the second item but also applies to firstGameX:
+       * 
+       * secondGameImage - Main image for the game
+       * 
+       * secondGameRankBox, secondGameRatingBox, secondGamePriceBox - The colors of the boxes around the text
+       * secondGameRankText, secondGameRatingText, secondGamePriceText - The actual text in the boxes
+       * 
+       * secondGameWeightIcon, secondGameAgeIcon, secondGameTimeIcon, secondGamePlayerIcon - The colord icons displayed for each game.
+       * secondGameWeightText, secondGameAgeText, secondGameTimeText, secondGamePlayerText, secondGameTitle - The text below the colored icons
+       * 
+       * Plan is to swap the text on selection and on view check for what colors/imgs to display for each comparison and then making the swap.
+       */
+    </script>
 
     </html>
