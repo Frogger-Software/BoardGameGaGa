@@ -201,7 +201,6 @@ $().ready(function () {
 
   $.each(results, function (number, game) {
     $(SearchResults).append($(
-      //'<div class="card my-3 game-card">' +
       '<a class="card my-3 game-card text-dark text-decoration-none" href="SingleGame.html?id='+ game.id +'">' + 
       '<img src="' + game.image + '" class="card-img-top" alt="...">' +
       '<div class="card-body">' +
@@ -209,8 +208,7 @@ $().ready(function () {
       '<p class="card-text text-center">' + game.ShortDesc + '</p>' +
       '<p class="card-text text-center">$' + game.price + '</p>' +
       '</div>' +
-      '</a>'// +
-      //'</div>'
+      '</a>'
     ))
     DisplayedResults++
   });

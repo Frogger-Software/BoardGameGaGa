@@ -62,6 +62,7 @@ body {
   height: 50px;
   border-top: 1px solid #999999;  
   background-color: #267EAF;
+  overflow-wrap: none;
 }
 
 .secondary_color{
