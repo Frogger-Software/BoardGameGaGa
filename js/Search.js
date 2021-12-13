@@ -1,78 +1,93 @@
+/*************************************************************
+Search.js - the javascript for Search.html
+--------------------------------------------------------------
+Austin Powers
+12/01/2021 - 12/14/2021
+--------------------------------------------------------------
+There are 3 categories of javascript covered in this file:
+1 - Reading Filters: 	Sets Persistent Search bar and filter selections.
+   And compiles all selected HTML elements into JS arrays for filtering later.
+
+2 - Finding Results: 	Filers all Games through a JS.Filter() to find matching results.
+
+3 - Appending Results to Search Page, No results will have a notification message
+ and use popular results instead of search specific 
+ 
+*************************************************************/
 'use strict';
 
-var catagorySelector = '#SearchBar-Filter';
-var catagoryDefaultText = 'All';
-
-var GenreSelector = '#Genre-Filter'
-
-var SearchResults = '#searchResults'
-var SearchResultText = '#resultsText'
+// HTML Link Consts and global variables
+const catagorySelector = '#SearchBar-Filter';
+const catagoryDefaultText = 'All';
+const GenreSelector = '#Genre-Filter'
+const SearchResults = '#searchResults'
+const SearchResultText = '#resultsText'
 var SearchResultCount = 0;
 var DisplayedResults = 0;
 
 var SearchBarFilter;
-var SearchBarStringSelector = '#SearchBar-string'
+const SearchBarStringSelector = '#SearchBar-string'
 var SearchBarString;
 
 
-var PriceSelector_20 = '#price-20'
-var PriceSelector_40 = '#price-40'
-var PriceSelector_60 = '#price-60'
-var PriceSelector_80 = '#price-80'
-var PriceSelector_100 = '#price-100'
-var PriceSelector_120 = '#price-120'
-var PriceSelector_120p = '#price-120p'
+const PriceSelector_20 = '#price-20'
+const PriceSelector_40 = '#price-40'
+const PriceSelector_60 = '#price-60'
+const PriceSelector_80 = '#price-80'
+const PriceSelector_100 = '#price-100'
+const PriceSelector_120 = '#price-120'
+const PriceSelector_120p = '#price-120p'
 var PriceSelectorArray = []
 
-var PlayerSelector_1 = '#player-1'
-var PlayerSelector_2 = '#player-2'
-var PlayerSelector_3 = '#player-3'
-var PlayerSelector_4 = '#player-4'
-var PlayerSelector_5 = '#player-5'
-var PlayerSelector_6 = '#player-6'
+const PlayerSelector_1 = '#player-1'
+const PlayerSelector_2 = '#player-2'
+const PlayerSelector_3 = '#player-3'
+const PlayerSelector_4 = '#player-4'
+const PlayerSelector_5 = '#player-5'
+const PlayerSelector_6 = '#player-6'
 var PlayerSelectorArray = []
 
-var PlaytimeSelector_1 = '#Playtime-1'
-var PlaytimeSelector_2 = '#Playtime-2'
-var PlaytimeSelector_3 = '#Playtime-3'
-var PlaytimeSelector_4 = '#Playtime-4'
-var PlaytimeSelector_5 = '#Playtime-5'
+const PlaytimeSelector_1 = '#Playtime-1'
+const PlaytimeSelector_2 = '#Playtime-2'
+const PlaytimeSelector_3 = '#Playtime-3'
+const PlaytimeSelector_4 = '#Playtime-4'
+const PlaytimeSelector_5 = '#Playtime-5'
 var PlaytimeSelectorArray = []
 
 
 $().ready(function () {
   SearchResultCount = Games.length;
 
-
-
   // Set default text
   $(catagorySelector).append($('<option>').text(catagoryDefaultText).attr('value', -1));
 
-  // Populate province select
+  // Populate Category dropdown
   $.each(Categories, function (number, catagory) {
     $(catagorySelector).append($('<option>').text(catagory.name).attr('value', catagory.value));
   });
-  //Set Value
+
+  //Set Value of search bar to match url parameters
   SearchBarFilter = getUrlParameter('SearchBar-Filter') || -1;
   $(catagorySelector).val(SearchBarFilter);
 
-
-  // Set default text
+  // Set category selector default option
   $(GenreSelector).append($('<option>').text(catagoryDefaultText).attr('value', -1));
 
-  // Populate province select
+  // Populate category select options
   $.each(Categories, function (number, catagory) {
     $(GenreSelector).append($('<option>').text(catagory.name).attr('value', catagory.value));
   });
 
-  //Set Value
+
+  //Set Value of search bars to match url parameters
   SearchBarFilter = getUrlParameter('SearchBar-Filter') || -1;
   SearchBarString = getUrlParameter('SearchBar-string') || "";
-
   $(GenreSelector).val(SearchBarFilter);
   $(SearchBarStringSelector).val(SearchBarString);
 
+  // Start Grabbing all of the filter options and contain the options into their respective arrays
 
+  // Price
   if (getUrlParameter('price-20') == 'on') {
     PriceSelectorArray.push(1)
     $(PriceSelector_20).attr("checked", 1);
@@ -106,8 +121,8 @@ $().ready(function () {
     PriceSelectorArray.push(7)
     $(PriceSelector_120p).attr("checked", 1);
   }
-  //console.log(PriceSelectorArray)
 
+  // Player Count
   if (getUrlParameter('player-1') == 'on') {
     PlayerSelectorArray.push(1)
     $(PlayerSelector_1).attr("checked", 1);
@@ -132,8 +147,8 @@ $().ready(function () {
     PlayerSelectorArray.push(6)
     $(PlayerSelector_6).attr("checked", 1);
   }
-  //console.log(PlayerSelectorArray)
 
+  //Play Time
   if (getUrlParameter('Playtime-1') == 'on') {
     PlaytimeSelectorArray.push(0)
     PlaytimeSelectorArray.push(30)
@@ -162,22 +177,18 @@ $().ready(function () {
     $(PlaytimeSelector_5).attr("checked", 1);
   }
 
-  //console.log(PlaytimeSelectorArray)
-
-
+  //Filter Games based on selected options
 
   let results = Games.filter(function (game) {
-    //console.log(SearchBarFilter, game.Genre, SearchBarFilter == -1, game.Genre == SearchBarFilter)
+    //GenreFilters is based on selected categories
     let GenreFilter = SearchBarFilter == -1 ? true : game.Genre == SearchBarFilter
-    //console.log(game.Title, SearchBarString, game.Title.includes(SearchBarString))
+    //StringFilter is Based on the searchbar Text Entry
     let StringFilter = game.name.toLowerCase().includes(SearchBarString.toLowerCase());
-    //console.log(Math.floor(game.Price / 20), PriceSelectorArray.includes(Math.ceil(game.Price / 20)), PriceSelectorArray.includes(7) && game.Price > 120)
 
-
+    //the following are based on the overlapping ranges between the selection options, and the respective min and max of the game
     let PriceFilter = PriceSelectorArray.includes(Math.ceil(game.price / 20)) ||
       PriceSelectorArray.includes(7) && game.price > 120 ||
       PriceSelectorArray.length == 0;
-
 
     let PlayerFilter = false;
     for (let i = game.minPlayers; i <= game.maxPlayers;i++){
@@ -195,10 +206,11 @@ $().ready(function () {
         break;
       }
     }
-
+    //All filters must pass for the game to end up in the results array
     return GenreFilter && StringFilter && PriceFilter && PlayerFilter && PlayTimeFilter
   })
 
+  // If we have results append them to the Proper place. Else were owning the error and displaying popular results instead
   if(results.length > 0){
   $.each(results, function (number, game) {
     $(SearchResults).append($(
@@ -219,31 +231,32 @@ $().ready(function () {
     'Now showing ' + DisplayedResults + ' of ' + SearchResultCount + ' results ' + SearchText +
     '</div>'
   ))
-}else{
-  let SearchText = SearchBarString.length > 0 ? ' for "' + SearchBarString + '"' : ""
-  $(SearchResultText).append($(
-    '<div class="card-body">' +
-    'No results found' + SearchText + ', heres the most popular games though!'+
-    '</div>'
-  ))
-  $.each(Games, function (number, game) {
-    $(SearchResults).append($(
-      '<a class="card my-3 game-card text-dark text-decoration-none" href="SingleGame.html?id='+ game.id +'">' + 
-      '<img src="' + game.image + '" class="card-img-top" alt="...">' +
+
+  }else{
+
+    let SearchText = SearchBarString.length > 0 ? ' for "' + SearchBarString + '"' : ""
+    $(SearchResultText).append($(
       '<div class="card-body">' +
-      '<h5 class="card-title text-center">' + game.name + '</h5>' +
-      '<p class="card-text text-center">' + game.ShortDesc + '</p>' +
-      '<p class="card-text text-center">$' + game.price + '</p>' +
-      '</div>' +
-      '</a>'
+      'No results found' + SearchText + ', heres the most popular games though!'+
+      '</div>'
     ))
-    DisplayedResults++
-  });
-}
-
-
-
+    $.each(Games, function (number, game) {
+      $(SearchResults).append($(
+        '<a class="card my-3 game-card text-dark text-decoration-none" href="SingleGame.html?id='+ game.id +'">' + 
+        '<img src="' + game.image + '" class="card-img-top" alt="...">' +
+        '<div class="card-body">' +
+        '<h5 class="card-title text-center">' + game.name + '</h5>' +
+        '<p class="card-text text-center">' + game.ShortDesc + '</p>' +
+        '<p class="card-text text-center">$' + game.price + '</p>' +
+        '</div>' +
+        '</a>'
+      ))
+      DisplayedResults++
+    });
+  }
 });
+
+
 
 $(".gameSubmittion").click(function () {
   window.location = $(this).find("a").attr("href");
