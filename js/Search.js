@@ -49,7 +49,7 @@ $().ready(function () {
   $(catagorySelector).append($('<option>').text(catagoryDefaultText).attr('value', -1));
 
   // Populate province select
-  $.each(catagories, function (number, catagory) {
+  $.each(Categories, function (number, catagory) {
     $(catagorySelector).append($('<option>').text(catagory.name).attr('value', catagory.value));
   });
   //Set Value
@@ -61,7 +61,7 @@ $().ready(function () {
   $(GenreSelector).append($('<option>').text(catagoryDefaultText).attr('value', -1));
 
   // Populate province select
-  $.each(catagories, function (number, catagory) {
+  $.each(Categories, function (number, catagory) {
     $(GenreSelector).append($('<option>').text(catagory.name).attr('value', catagory.value));
   });
 
@@ -135,25 +135,30 @@ $().ready(function () {
   //console.log(PlayerSelectorArray)
 
   if (getUrlParameter('Playtime-1') == 'on') {
-    PlaytimeSelectorArray.push(1)
+    PlaytimeSelectorArray.push(0)
+    PlaytimeSelectorArray.push(30)
     $(PlaytimeSelector_1).attr("checked", 1);
   }
   if (getUrlParameter('Playtime-2') == 'on') {
-    PlaytimeSelectorArray.push(2)
+    PlaytimeSelectorArray.push(30)
+    PlaytimeSelectorArray.push(60)
+
     $(PlaytimeSelector_2).attr("checked", 1);
   }
   if (getUrlParameter('Playtime-3') == 'on') {
-    PlaytimeSelectorArray.push(3)
-    PlaytimeSelectorArray.push(4)
+    PlaytimeSelectorArray.push(60)
+    PlaytimeSelectorArray.push(120)
     $(PlaytimeSelector_3).attr("checked", 1);
   }
   if (getUrlParameter('Playtime-4') == 'on') {
-    PlaytimeSelectorArray.push(5)
-    PlaytimeSelectorArray.push(6)
+    PlaytimeSelectorArray.push(120)
+    PlaytimeSelectorArray.push(180)
     $(PlaytimeSelector_4).attr("checked", 1);
   }
   if (getUrlParameter('Playtime-5') == 'on') {
-    PlaytimeSelectorArray.push(7)
+    PlaytimeSelectorArray.push(180)
+    PlaytimeSelectorArray.push(1000)
+
     $(PlaytimeSelector_5).attr("checked", 1);
   }
 
@@ -165,33 +170,47 @@ $().ready(function () {
     //console.log(SearchBarFilter, game.Genre, SearchBarFilter == -1, game.Genre == SearchBarFilter)
     let GenreFilter = SearchBarFilter == -1 ? true : game.Genre == SearchBarFilter
     //console.log(game.Title, SearchBarString, game.Title.includes(SearchBarString))
-    let StringFilter = game.Title.includes(SearchBarString);
+    let StringFilter = game.name.toLowerCase().includes(SearchBarString.toLowerCase());
     //console.log(Math.floor(game.Price / 20), PriceSelectorArray.includes(Math.ceil(game.Price / 20)), PriceSelectorArray.includes(7) && game.Price > 120)
-    let PriceFilter = PriceSelectorArray.includes(Math.ceil(game.Price / 20)) ||
-      PriceSelectorArray.includes(7) && game.Price > 120 ||
+
+
+    let PriceFilter = PriceSelectorArray.includes(Math.ceil(game.price / 20)) ||
+      PriceSelectorArray.includes(7) && game.price > 120 ||
       PriceSelectorArray.length == 0;
 
-    let PlayerFilter = PlayerSelectorArray.includes(game.PlayerCount) ||
-      PlayerSelectorArray.includes(6) && game.PlayerCount > 6 ||
-      PlayerSelectorArray.length == 0;
 
-    let PlayTimeValue = Math.ceil(game.PlayTime / 30)
-    let PlayTimeFilter = PlaytimeSelectorArray.includes(PlayTimeValue) ||
-      PlaytimeSelectorArray.includes(7) && PlayTimeValue > 7 ||
-      PlaytimeSelectorArray.length == 0;
+    let PlayerFilter = false;
+    for (let i = game.minPlayers; i <= game.maxPlayers;i++){
+      if(PlayerSelectorArray.includes(i) || (game.maxPlayers >= 6 && PlayerSelectorArray.includes(6)) || PlayerSelectorArray.length == 0){
+        PlayerFilter = true
+        break;
+      }
+    }
+    
+    let PlayTimeFilter = PlaytimeSelectorArray == 0;
+    for(let i = 0; i < PlaytimeSelectorArray.length; i += 2){
+
+      if((game.minPlaytime <= PlaytimeSelectorArray[i] && game.maxPlaytime >= PlaytimeSelectorArray[i+1])){
+        PlayTimeFilter = true
+        break;
+      }
+    }
+
     return GenreFilter && StringFilter && PriceFilter && PlayerFilter && PlayTimeFilter
   })
 
   $.each(results, function (number, game) {
     $(SearchResults).append($(
-      '<div class="card my-3 game-card">' +
-      '<img src="' + game.Image + '" class="card-img-top" alt="...">' +
+      //'<div class="card my-3 game-card">' +
+      '<a class="card my-3 game-card text-dark text-decoration-none" href="SingleGame.html?id='+ game.id +'">' + 
+      '<img src="' + game.image + '" class="card-img-top" alt="...">' +
       '<div class="card-body">' +
-      '<h5 class="card-title text-center">' + game.Title + '</h5>' +
+      '<h5 class="card-title text-center">' + game.name + '</h5>' +
       '<p class="card-text text-center">' + game.ShortDesc + '</p>' +
-      '<p class="card-text text-center">$' + game.Price + '</p>' +
+      '<p class="card-text text-center">$' + game.price + '</p>' +
       '</div>' +
-      '</div>'
+      '</a>'// +
+      //'</div>'
     ))
     DisplayedResults++
   });
