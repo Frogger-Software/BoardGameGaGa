@@ -27,37 +27,7 @@ javascript.
 <body>
   <form action= "/Search.html" class="">
 
-    <!-- NAV BAR -->
-    <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand col-md-4 link-dark" href="dashboard.html">
-          <img src="img/bgggLogoText.png" class="titleLogo" alt="Responsive image">
-        </a>
-        <div class="col-md-4">
-          <div class="d-flex flex-row">
-
-            <select id="SearchBar-Filter" name="SearchBar-Filter" class="form-select search-menu SearchBar-Filter">
-            </select>
-
-            <input id="SearchBar-string search" name="SearchBar-string" class="form-control search-bar" type="search"
-              placeholder="Search" aria-label="Search">
-            <button class="btn btn-primary" type="submit">Search</button>
-
-          </div>
-        </div>
-        <div class="collapse navbar-collapse " id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-            <li class="nav-item card secondary_color rounded-pill">
-              <a class="nav-link active link-dark" aria-current="page" href="#">Login</a>
-            </li>
-            <li class="nav-item card ms-2 secondary_color rounded-pill">
-              <a class="nav-link active link-dark " href="#">SignUp</a>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </nav>
+    <div id = "HeaderLink"></div>
 
     <!-- Support Bar -->
     <div class="d-flex p-2 pe-3 pt-3">
@@ -167,6 +137,7 @@ javascript.
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
     integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
     crossorigin="anonymous"></script>
+  <script src="js/Header.js"></script>
   <script src="js/Dashboard.js"></script>
   <script src="js/CategoryData.js"></script>
   <script src="js/GameData.js"></script>
