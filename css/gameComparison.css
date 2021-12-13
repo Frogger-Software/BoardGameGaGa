@@ -1,0 +1,22 @@
+.gameInfoContainer {
+    border-radius: 10px; 
+    background-color: #ffffff;
+}
+.gameTitleText {
+    color: #61667c;
+}
+.gameComparisonModalContent {
+    border-radius: 10px; 
+    background-color: #F0EDE8;
+}
+.gameComparisonWhiteText {
+    color: white;
+}
+.gameComparisonGreenBox {
+    border-radius: 10px; 
+    background-color: #26AF42;
+}
+.gameComparisonBlueBox {
+    border-radius: 10px; 
+    background-color: #267EAF;
+}
