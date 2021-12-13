@@ -10,6 +10,8 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color: #EDEDED;	
+
 }
 
 .navbar{
@@ -62,6 +64,7 @@ body {
   height: 50px;
   border-top: 1px solid #999999;  
   background-color: #267EAF;
+  overflow-wrap: none;
 }
 
 .secondary_color{

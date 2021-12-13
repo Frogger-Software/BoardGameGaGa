@@ -22,6 +22,8 @@ javascript.
 
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
 
+    <script src="js/Footer.js"></script>
+
     <title>Register a New Board Game</title>
   </head>
   <body>
@@ -32,7 +34,7 @@ javascript.
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand col-md-4 link-dark" href="dashboard.html">
-          <img src="bgggLogoText.png" class="titleLogo" alt="Responsive image">
+          <img src="img/bgggLogoText.png" class="titleLogo" alt="Responsive image">
         </a>
         <div class="col-md-4">
           <div class="d-flex flex-row">
@@ -64,12 +66,13 @@ javascript.
         <div class="container-sm py-5">
           <div id="RegisterGame" class="mt-0">
             <h3 class="h3 mb-4 text-center ">Register a new Board Game</h3>
-            <div id="SubmissionFormContainer" class="box shadow bg-white p-4">
+            <div id="SubmissionFormContainer" class="box p-4">
               <form action="" id="SubmissionForm" class="p-2 mb-3 form-validation" novalidate>
                 <div class="m-2 p-5">
-                  <h4 class="h4 mb-4 text-center">Tell us about the game</h4>
 
-                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                  <div class="px-5 py-4 bg-white" style="border: 2px solid #000000; border-radius: 25px;">
+                    <h4 class="h4 mb-4 text-center">Tell us about the game</h4>
+
                     <div class="px-5">
                       <div class="needs-validation mb-3 col-md-6">
                         <label for="gameTitle" class="form-label">Game Title <abbr class="required" title="required">*</abbr></label>
@@ -165,12 +168,11 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
                 </div>
 
                 <div class="m-2 p-5">
-                  <h4 class="h4 mb-4 text-center">What does it look like?</h4>
-                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                  <div class="px-5 py-4 bg-white " style="border: 2px solid #000000; border-radius: 25px;">
+                    <h4 class="h4 mb-1 text-center">What does it look like?</h4>
+
                     <div class="px-5">
-                      <div class="text-center">
-                        <label class="form-label">You may add up to 6 photos</label>
-                      </div>
+
                       <div class="container">
                         <div class="row align-items-center justify-content-center">
                           <div id="preview-item-0" class="col text-center">
@@ -211,18 +213,22 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
                           </div>
                         </div>
                       </div>
-                      <fieldset class="form-group text-center py-3">
+                      <fieldset class="form-group text-center pt-3 pb-1">
                           <button type="button" class="btn btn-success shadow" onclick="openSelectionWindow()">Add Photo</button>
                           <input id="fileSelector" class="form-control" type="file" style="display: none;" multiple/>
                       </fieldset>
+                      <div class="text-center">
+                        <label class="form-label text-center">You may add up to 6 photos</label>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div class="m-2 p-5">
-                  <h4 class="h4 mb-4 text-center">Who was it made by?</h4>
-                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                  <div class="px-5 py-4 bg-white" style="border: 2px solid #000000; border-radius: 25px;">
                     <div class="px-5">
+                      <h4 class="h4 mb-4 text-center">Who was it made by?</h4>
+
                       <div class="mb-3 col-md-2 needs-validation">
                         <label for="yearReleased" class="form-label">Year Released <abbr class="required" title="required">*</abbr></label>
                         <input type="text" class="form-control check-validity-event" id="yearReleased" placeholder="2016" pattern="[1-2]{1}[0-9]{3}" required>
@@ -248,17 +254,18 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
                       <div class="mb-3 col-md-6">
                         <label for="artists" class="form-label">Artists</label>
                         <input type="text" class="form-control optional-check-validity-event" id="artists" placeholder="Ervin, Sabrina Tobal">
+                      </div>
+                      <div class="mt-2 d-flex justify-content-end">
+                        <input class="btn btn-success shadow" type="button" value="Review Submission" onclick="attemptSubmitForm()">
                       </div> 
                     </div>
                   </div>
                 </div>
-                <div class="mt-5 d-flex justify-content-end">
-                  <input class="btn btn-success shadow" type="button" value="Review Submission" onclick="attemptSubmitForm()">
-                </div>
+
               </form>
     
             </div>
-            <div id="ReviewForm" class="box shadow bg-white p-4 hidden">
+            <div id="ReviewForm" class="box p-4 hidden">
                 <div class="m-2 p-2">
                   <h4 class="h4 mb-4 text-center">Does this all look correct?</h4>
                 </div>
@@ -266,7 +273,7 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
                   
                   <h4 class="h4 mb-4 text-leading">General Information</h4>
 
-                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                  <div class="px-5 py-4 bg-white" style="border: 2px solid #000000; border-radius: 25px;">
                     <div class="px-5">
                       <div class="mb-3 col-md-6">
                         <label for="gameTitle" class="form-label">Game Title</label>
@@ -315,7 +322,7 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
                 <div id="ReviewImagesArea" class="m-2 p-5">
                   <h4 class="h4 mb-4 text-leading">Images</h4>
-                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                  <div class="px-5 py-4 bg-white" style="border: 2px solid #000000; border-radius: 25px;">
                     <div class="px-5">
                       <div class="container">
                         <div class="row align-items-center justify-content-center">
@@ -341,7 +348,7 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
                 <div class="m-2 p-5">
                   <h4 class="h4 mb-4 text-leading">Publication</h4>
-                  <div class="px-5 py-4" style="border: 2px solid #000000; border-radius: 25px;">
+                  <div class="px-5 py-4 bg-white" style="border: 2px solid #000000; border-radius: 25px;">
                     <div class="px-5">
                       <div class="mb-3 col-md-2">
                         <label for="yearReleased" class="form-label">Year Released</label>
@@ -365,103 +372,24 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
                       </div> 
                     </div>
+                    <div class="container">
+                      <div class="row">
+                        <div class="mt-5 d-flex col justify-content-leading">
+                          <button type="button" class="btn btn-secondary shadow" onclick="backToForm()">Back</button>
+                        </div>  
+                        <div class="mt-5 d-flex col justify-content-end">
+                          <button type="button" class="btn btn-success shadow" onclick="attemptSubmitData()">Submit Game</button>
+                        </div>  
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="container">
-                  <div class="row">
-                    <div class="mt-5 d-flex col justify-content-leading">
-                      <button type="button" class="btn btn-secondary shadow" onclick="backToForm()">Back</button>
-                    </div>  
-                    <div class="mt-5 d-flex col justify-content-end">
-                      <button type="button" class="btn btn-success shadow" onclick="attemptSubmitData()">Submit Game</button>
-                    </div>  
-                  </div>
-                </div>
+
             </div>
           </div>
         </div>
-    <div class="modal" id="registerModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border-radius: 40px;">
-          <div class="modal-body px-4 py-5">
-            <div class="p-3 shadow text-center" style="border-radius: 10px; background-color: #89BCC4;">
-              <h4>Register</h4>
-            </div>
-          </div>
-          <div class="px-4 pb-5">
-            <form id="RegisterForm" class="pb-5">
-              <div>
-                <label for="username_register" class="form-label">Username</label>
-                <input type="text" class="form-control check-validity-event" id="username_register" pattern="[a-zA-Z0-9]{1,32}" required>
-              </div>
-              <br>
-              <div>
-                <label for="email_register" class="form-label">Email</label>
-                <input type="password" class="form-control check-validity-event" id="email_register" required>
-              </div>
-              <br>
-              <div>
-                <label for="password_register" class="form-label">Password</label>
-                <input type="password" class="form-control check-validity-event" id="password_register" pattern="[a-zA-Z0-9#?!@$ %^&*-]{1,32}" required>
-              </div>
-              <br>
-              <div>
-                <div class="form-check d-flex align-items-center justify-content-center">
-                  <input class="form-check-input check-validity-event mx-2" type="checkbox" value="" id="flexCheckDefault" required>
-                  <label class="form-check-label" for="flexCheckDefault">
-                       I agree to the <abbr class="dummyLink" title="Dummy link">Terms and Conditions</abbr>
-                  </label>
-                </div>
-              </div>
-            </form>
 
-            <div class="py-5 container justify-content-center col-md-6">
-              <div class="row py-1">
-                  <button type="button" class="btn btn-primary" onclick="register()">Register</button>
-              </div>
-              <div class="row py-1">
-                <button type="button" class="btn btn-secondary" onclick="swapRegisterToLogin()">Login</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal" id="loginModal" tabindex="-1" aria-hidden="true" >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border-radius: 40px;">
-          <div class="modal-body px-4 py-5">
-            <div class="p-3 shadow text-center" style="border-radius: 10px; background-color: #89BCC4;">
-              <h4>Login</h4>
-            </div>
-          </div>
-          <div class="px-4 pb-5">
-            <form id="LoginForm" class="pb-5">
-              <label for="username_login" class="form-label">Username</label>
-              <input type="text" class="form-control check-validity-event" id="username_login" pattern="[a-zA-Z0-9]{1,32}" required>
-              <br>
-              <label for="password_login" class="form-label">Password</label>
-              <input type="password" class="form-control check-validity-event" id="password_login" pattern="[a-zA-Z0-9#?!@$ %^&*-]{1,32}" required>
-            </form>
 
-            <div class="py-5 container justify-content-center col-md-6">
-              <div class="row py-1">
-                  <button type="button" class="btn btn-primary" onclick="login()">Login</button>
-              </div>
-              <div class="row py-1">
-                <button type="button" class="btn btn-secondary" onclick="swapLoginToRegister()">Register</button>
-              </div>
-
-            </div>
-            <div class="pb-3 container justify-content-center col-md-6">
-              <div class="row">
-                <button type="button" class="btn btn-secondary">Forgot Password?</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="border-radius: 40px;">
@@ -483,11 +411,10 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
         </div>
       </div>
     </div>   
-    <footer class="footer mt-auto py-3 navbar-dark" style="background-color: #267EAF;">
-      <div class="container">
-        <span class="text-light">Place sticky footer content here.</span>
-      </div>
-    </footer>
+
+
+  <div id="FooterLink"></div>
+
 
     
     <!-- Option 2: Separate Popper and Bootstrap JS -->

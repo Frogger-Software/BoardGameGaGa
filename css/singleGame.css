@@ -10,7 +10,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-    background-color: #F0EDE8;	
+  background-color: #EDEDED;	
 }
 
 .navbar{
@@ -60,7 +60,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 50px;
+  height: max-content;
   border-top: 1px solid #999999;  
   background-color: #267EAF;
 }
@@ -74,7 +74,8 @@ body {
 }
 
 .detailHeader{
-	height: 313px;
+	/* height: 313px; */
+	/* max-height: 400px; */
 }
 .gd_Pic{
 	border: 1px solid #FFFFFF;
@@ -82,7 +83,7 @@ body {
 	width: auto;
 	object-fit: contain;
 	margin:auto;
-	height: inherit;
+	height: 313px;
 }
 .pageTitle{
 	
@@ -144,6 +145,7 @@ body {
 }
 .rbTitle {
 }
+
 .rbDetail {
 	font-size: xx-large;
 }
@@ -156,9 +158,12 @@ body {
 }
 .pubLabel {
 	text-align:left;
+	margin-left: 1em;
+
 }
 .pubData {
 	text-align:right;
+	margin-right: 1em;
 	color: #267EAF;
 }
 .gd_Description{
@@ -173,6 +178,7 @@ body {
 	width:fit-content;
 	height: inherit;
 }
+
 @include media-breakpoint-up(sm){
 	.gd_pic{
 		margin:auto;
