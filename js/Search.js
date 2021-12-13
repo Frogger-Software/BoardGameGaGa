@@ -199,6 +199,7 @@ $().ready(function () {
     return GenreFilter && StringFilter && PriceFilter && PlayerFilter && PlayTimeFilter
   })
 
+  if(results.length > 0){
   $.each(results, function (number, game) {
     $(SearchResults).append($(
       '<a class="card my-3 game-card text-dark text-decoration-none" href="SingleGame.html?id='+ game.id +'">' + 
@@ -218,6 +219,29 @@ $().ready(function () {
     'Now showing ' + DisplayedResults + ' of ' + SearchResultCount + ' results ' + SearchText +
     '</div>'
   ))
+}else{
+  let SearchText = SearchBarString.length > 0 ? ' for "' + SearchBarString + '"' : ""
+  $(SearchResultText).append($(
+    '<div class="card-body">' +
+    'No results found' + SearchText + ', heres the most popular games though!'+
+    '</div>'
+  ))
+  $.each(Games, function (number, game) {
+    $(SearchResults).append($(
+      '<a class="card my-3 game-card text-dark text-decoration-none" href="SingleGame.html?id='+ game.id +'">' + 
+      '<img src="' + game.image + '" class="card-img-top" alt="...">' +
+      '<div class="card-body">' +
+      '<h5 class="card-title text-center">' + game.name + '</h5>' +
+      '<p class="card-text text-center">' + game.ShortDesc + '</p>' +
+      '<p class="card-text text-center">$' + game.price + '</p>' +
+      '</div>' +
+      '</a>'
+    ))
+    DisplayedResults++
+  });
+}
+
+
 
 });
 
