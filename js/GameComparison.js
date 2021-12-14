@@ -20,6 +20,9 @@ function loadComparison(){
 	firstGamePageLink = `SingleGame.html?id=${firstGame['id']}`;
 	secondGamePageLink = `SingleGame.html?id=${secondGame['id']}`;
 
+	document.getElementById("first_game_name_text").href = firstGamePageLink
+	document.getElementById("second_game_name_text").href = secondGamePageLink
+
 	// Set all of the text fields on the comparison page the same way done
 	// on the single game page but using the 'first' and 'second' field headers
 	// to set the individual games into the comparison.
