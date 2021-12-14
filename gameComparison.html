@@ -35,10 +35,10 @@ Section: CSC 642 T9 Fall21
                 <div class="modal-content container d-flex gameComparisonModalContent">
     
                     <!-- Close button for modal -->
-                    <div class="row justify-content-end pt-2 pe-2">
+                    <div class="row justify-content-start pt-2 pe-2">
                         <button type="button" class="btn btn-secondary p-3 col-auto shadow text-center"
                             data-bs-dismiss="modal" style="border-radius: 10px; background-color: #89BCC4;">
-                            <h4 class="mb-0">X</h4>
+                            <h4 id="backToGameButton" class="mb-0" onclick="loadSecondGame()">Back</h4>
                         </button>
                     </div>
     
@@ -52,7 +52,7 @@ Section: CSC 642 T9 Fall21
                             <div id="firstGameImageColumn" class="col-lg-3 col-md-4 col-sm-6 container">
                                 <div class="row align-items-start h-100 py-5">
                                     <div class="col">
-                                        <img id="first_game_image" src="img/meeples.jpg" class="img-fluid img-thumbnail">
+                                        <img id="first_game_image" src="img/meeples.jpg" onclick="loadFirstGame()" class="img-fluid img-thumbnail">
                                     </div>
                                 </div>
                             </div>
@@ -65,8 +65,8 @@ Section: CSC 642 T9 Fall21
                                         <!-- First Game title -->
                                         <div id="firstGameTitleRow" class="row justify-content-center">
                                             <div class="col-auto">
-                                                <h3 id="first_game_name_text" class="gameTitleText">
-                                                    Ratatoille
+                                                <h3 class="gameTitleText">
+                                                    <a id="first_game_name_text" onclick="loadFirstGame()">Ratatoille</a>
                                                 </h3>
                                             </div>
                                         </div>
@@ -177,7 +177,7 @@ Section: CSC 642 T9 Fall21
                             <div id="secondGameImageColumn" class="col-lg-3 col-md-4 col-sm-6 container">
                                 <div class="row align-items-start h-100 py-5">
                                     <div class="col">
-                                        <img id="second_game_image" src="img/meeples.jpg" class="img-fluid img-thumbnail">
+                                        <img id="second_game_image" src="img/meeples.jpg" onclick="loadSecondGame()" class="img-fluid img-thumbnail">
                                     </div>
                                 </div>
                             </div>
@@ -284,8 +284,8 @@ Section: CSC 642 T9 Fall21
                                         <!-- Second game title -->
                                         <div id="secondGameTitleRow" class="row justify-content-center">
                                             <div class="col-auto">
-                                                <h3 id="second_game_name_text" class="gameTitleText">
-                                                    Ratatoille
+                                                <h3 class="gameTitleText">
+                                                    <a id="second_game_name_text" onclick="loadSecondGame()">Ratatoille</a>
                                                 </h3>
                                             </div>
                                         </div>
@@ -316,9 +316,20 @@ Section: CSC 642 T9 Fall21
 	<script src="js/Header.js"></script>
 	<script src="js/CategoryData.js"></script>
 	<script src="js/Search.js"></script>
-	<script type="text/javascript" src="js/singleGame.js" defer="true"> </script>
-	<script type="text/javascript" src="js/GameData.js" defer="true"> </script>
-	<script src="js/Footer.js"></script>
 	<script src="js/GameComparison.js"></script>
+	<script type="text/javascript" src="js/singleGame.js"></script>
+	<script type="text/javascript" src="js/GameData.js"> </script>
+	<script src="js/Footer.js"></script>
 
+    <script>
+        (()=>{
+            loadComparison()
+        })()
+        function loadFirstGame() {
+            window.document.location = firstGamePageLink
+        }
+        function loadSecondGame() {
+            window.document.location = secondGamePageLink
+        }
+    </script>
 </html>
