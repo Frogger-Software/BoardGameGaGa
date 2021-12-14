@@ -15,8 +15,9 @@ This is an index file for github hosting
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CSC642 Index Page</title>
     <script>
-    let indexURL = window.document.location;
+    let indexURL = window.document.location.href;
     console.log(indexURL);
+    
     let folderURL = indexURL.split("index.html")[0];
     let dashURL = folderURL + "dashboard.html";
     window.document.location = dashURL;
