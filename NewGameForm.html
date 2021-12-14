@@ -550,7 +550,7 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
           if (reviewDataHolder) {
             reviewDataHolder.innerHTML = input.value
-            reviewDataHolder.parentNode.classList.remove("hidden")
+            reviewDataHolder.parentNode.style.removeProperty('display');
           }
           else {
             console.log(input.id)
@@ -562,17 +562,17 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
             input.parentNode.classList.remove('was-validated')
             let reviewDataHolder = document.getElementById(input.id + "_data")
             if (reviewDataHolder) {
-              reviewDataHolder.parentNode.classList.add("hidden")
+              reviewDataHolder.parentNode.style.display = "None";
             }
           }
         }
 
         let reviewImagesArea = document.getElementById('ReviewImagesArea')
-        reviewImagesArea.classList.add("hidden")
+        reviewImagesArea.style.display = "None";
 
         // If there are images to copy do that here.
         if (images.length > 0) {
-          reviewImagesArea.classList.remove("hidden")
+          reviewImagesArea.style.removeProperty('display');
 
           // Copy the primary image to the first location.
           let html = "<img src='" + images[primaryImageIndex] + "' class='img-thumbnail col' style='height: auto; width: auto;'>"
@@ -745,8 +745,8 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
     // Called from the results verification page to swap back to the data entry page.
     function backToForm() {
-      document.getElementById('SubmissionFormContainer').classList.remove('hidden')
-      document.getElementById('ReviewForm').classList.add('hidden')
+      document.getElementById('SubmissionFormContainer').removeProperty('display');
+      document.getElementById('ReviewForm').style.display = "None";
 
       setTimeout(function () {
         window.scrollTo({
