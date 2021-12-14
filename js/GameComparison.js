@@ -44,10 +44,24 @@ function loadComparison(){
 
 				let data = ""
 				if(field === 'players') {
-					data =  `${game['minPlayers']} - ${game['maxPlayers']} Players`  
+					let minPlayers = game['minPlayers']
+					let maxPlayers = game['maxPlayers']
+					if(minPlayers === maxPlayers) {
+						data =  `${minPlayers} Players`  
+					}
+					else {
+						data =  `${minPlayers} - ${maxPlayers} Players`  
+					}
 				}
 				else if(field === 'playtime') {
-					data = `${game['minPlaytime']} - ${game['maxPlaytime']} Minutes`
+					let minPlaytime = game['minPlaytime']
+					let maxPlaytime = game['maxPlaytime']
+					if(minPlaytime === maxPlaytime) {
+						data =  `${minPlaytime} Minutes`  
+					}
+					else {
+						data =  `${minPlaytime} - ${maxPlaytime} Players`  
+					}
 				}
 				else {
 					data = game[field];
