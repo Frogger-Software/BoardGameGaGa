@@ -1,0 +1,28 @@
+<!--
+Name: William Plachno
+Date: 12.01.21
+Section: CSC 642 T9 Fall21
+
+This is a display page for an individual board game. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CSC642 Index Page</title>
+    <script>
+    let indexURL = window.document.location;
+    let folderURL = indexURL.split("index.html")[0];
+    let dashURL = folderURL + "dashboard.html";
+    window.document.location = dashURL;
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
