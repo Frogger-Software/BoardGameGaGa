@@ -323,7 +323,14 @@ Section: CSC 642 T9 Fall21
 
     <script>
         (()=>{
-            loadComparison()
+            let firstGame = sessionStorage.getItem("firstGameComparison");
+	        let secondGame = sessionStorage.getItem("secondGameComparison");
+            if(firstGame && secondGame) {
+                loadComparison()
+            }
+            else {
+                window.document.location = "dashboard.html"
+            }
         })()
         function loadFirstGame() {
             window.document.location = firstGamePageLink
