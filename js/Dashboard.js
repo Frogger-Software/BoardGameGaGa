@@ -10,7 +10,7 @@ This will take an array of 'Top game ids' and display only those from the master
 *************************************************************/
 'use strict';
 var top5Games = '#top5Games'
-const topFiveIds = ["0","1"] 
+const topFiveIds = ["3","4","5","2","6"] 
 
 
 $().ready(function () {

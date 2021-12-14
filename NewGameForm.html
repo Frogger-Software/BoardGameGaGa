@@ -21,9 +21,14 @@ javascript.
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- <link rel="stylesheet" type="text/css" href="css/NewGameForm.css"> -->
   <link rel="stylesheet" type="text/css" href="css/search.css">
-
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-
+  <script src="js/Header.js"></script>
   <script src="js/Footer.js"></script>
 
   <title>Register a New Board Game</title>
@@ -48,7 +53,7 @@ javascript.
                   <label for="gameTitle" class="form-label">Game Title <abbr class="required"
                       title="required">*</abbr></label>
                   <input type="text" class="form-control check-validity-event" id="gameTitle"
-                    placeholder="Captain Sonarr" pattern="[a-zA-Z0-9'\s]{1,40}" required>
+                    placeholder="Captain Sonar" pattern="[a-zA-Z0-9'\s]{1,40}" required>
                   <div class="invalid-feedback">
                     Please enter the game's title
                   </div>
@@ -277,47 +282,40 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
             <div class="px-5">
               <div class="mb-3 col-md-6">
                 <label for="gameTitle" class="form-label">Game Title</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="gameTitle_data">Captain Sonarr</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="gameTitle_data"></div>
 
               </div>
               <div class="mb-3 col-md-8">
                 <label for="shortGameDescription" class="form-label">Short Game Description</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="shortGameDescription_data">Torpedoes away! Hunt for
-                  your opponent's sub in this exciting, real-time team game. </div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="shortGameDescription_data"></div>
               </div>
               <div class="mb-3 col-md-12">
                 <label for="longGameDescription" class="form-label">Long Game Description</label>
                 <div class="row border bg-light p-1 mx-1 gx-0" id="longGameDescription_data">
-                  At the bottom of the ocean, no one will hear you scream!
-
-                  In Captain Sonar, you and your teammates control a state-of-the-art submarine and are trying to locate
-                  an enemy submarine in order to blow it out of the water before they can do the same to you. Every role
-                  is important, and the confrontation is merciless. Be organized and communicate because a captain is
-                  nothing without his crew: the Chief Mate, the Radio Operator, and the Engineer.
                 </div>
               </div>
               <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
                 <label for="gameCategory" class="form-label">Game Catagory</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="gameCategory_data">Strategy</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="gameCategory_data"></div>
               </div>
               <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
                 <label for="numberOfPlayers" class="form-label">Number of Players</label>
-                <div class="row border bg-light p-1 mx-1 gx-0 col-sm-3" id="numberOfPlayers_data">4+</div>
+                <div class="row border bg-light p-1 mx-1 gx-0 col-sm-3" id="numberOfPlayers_data"></div>
 
               </div>
               <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
                 <label for="averagePlayTime" class="form-label">Average Play Time</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="averagePlayTime_data">1 to 2 hours</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="averagePlayTime_data"></div>
 
               </div>
               <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
                 <label for="recommendedAge" class="form-label">Recommended Age</label>
-                <div class="row border bg-light p-1 mx-1 gx-0 col-sm-3" id="recommendedAge_data">14+</div>
+                <div class="row border bg-light p-1 mx-1 gx-0 col-sm-3" id="recommendedAge_data"></div>
 
               </div>
               <div class="mb-3 col-sm-12 col-md-7 col-lg-4 col-xl-3 col-xxl-3">
                 <label for="genre" class="form-label">Genre</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="genre_data">Secret Identity</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="genre_data"></div>
 
               </div>
             </div>
@@ -356,23 +354,23 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
             <div class="px-5">
               <div class="mb-3 col-md-2">
                 <label for="yearReleased" class="form-label">Year Released</label>
-                <div class="row border bg-light p-1 mx-1 gx-0 col-md-6" id="yearReleased_data">2016</div>
+                <div class="row border bg-light p-1 mx-1 gx-0 col-md-6" id="yearReleased_data"></div>
               </div>
               <div class="mb-3 col-md-4">
                 <label for="publisher" class="form-label">Publisher</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="publisher_data">Secret Identity</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="publisher_data"></div>
               </div>
               <div class="mb-3 col-md-12">
                 <label for="tags" class="form-label">Tags</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="tags_data">Secret Identity</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="tags_data"></div>
               </div>
               <div class="mb-3 col-md-6">
                 <label for="designers" class="form-label">Designers</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="designers_data">Secret Identity</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="designers_data"></div>
               </div>
               <div class="mb-3 col-md-6">
                 <label for="artists" class="form-label">Artists</label>
-                <div class="row border bg-light p-1 mx-1 gx-0" id="artists_data">Secret Identity</div>
+                <div class="row border bg-light p-1 mx-1 gx-0" id="artists_data"></div>
 
               </div>
             </div>
@@ -552,7 +550,7 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
           if (reviewDataHolder) {
             reviewDataHolder.innerHTML = input.value
-            reviewDataHolder.parentNode.classList.remove("hidden")
+            reviewDataHolder.parentNode.style.removeProperty('display');
           }
           else {
             console.log(input.id)
@@ -564,17 +562,17 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
             input.parentNode.classList.remove('was-validated')
             let reviewDataHolder = document.getElementById(input.id + "_data")
             if (reviewDataHolder) {
-              reviewDataHolder.parentNode.classList.add("hidden")
+              reviewDataHolder.parentNode.style.display = "None";
             }
           }
         }
 
         let reviewImagesArea = document.getElementById('ReviewImagesArea')
-        reviewImagesArea.classList.add("hidden")
+        reviewImagesArea.style.display = "None";
 
         // If there are images to copy do that here.
         if (images.length > 0) {
-          reviewImagesArea.classList.remove("hidden")
+          reviewImagesArea.style.removeProperty('display');
 
           // Copy the primary image to the first location.
           let html = "<img src='" + images[primaryImageIndex] + "' class='img-thumbnail col' style='height: auto; width: auto;'>"
@@ -747,8 +745,8 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
     // Called from the results verification page to swap back to the data entry page.
     function backToForm() {
-      document.getElementById('SubmissionFormContainer').classList.remove('hidden')
-      document.getElementById('ReviewForm').classList.add('hidden')
+      document.getElementById('SubmissionFormContainer').classList.remove('d-none')
+      document.getElementById('ReviewForm').classList.add('d-none')
 
       setTimeout(function () {
         window.scrollTo({
@@ -760,7 +758,7 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
     }
 
     function userExitedGameSubmission() {
-      // TODO: swap user to different page on clicking OK
+      window.document.location = "dashboard.html"
     }
 
   </script>
