@@ -20,3 +20,15 @@
     border-radius: 10px; 
     background-color: #267EAF;
 }
+
+/*
+ * When the screen is less than 768px (or less than the medium breakpoint in 
+ * bootstrap) this makes the entire background the same color as the modal. In
+ * a sense it hides the fact that the modal is not scaling its background properly
+ * for mobile devices.
+*/
+@media (max-width: 768px) {
+    .gameComparisonMobileBackground {
+        background-color: #F0EDE8;
+    }
+}

@@ -266,3 +266,20 @@ window.addEventListener('load', initPage);
 //	The game that is currently loaded into the page. Not set until
 // fully loaded.
 var currentGame;
+
+/***
+ * Takes the current game stored above, extracts the ID and stores it to the 
+ * session storage to be used later when the game comparison page is loaded.
+ * The game comparison modal will load the data using the game ID.
+ */
+function setCurrentGameToComparison() {
+
+	if(sessionStorage.getItem("firstGameComparison")) {
+		sessionStorage.setItem("secondGameComparison", currentGame.getId());
+		document.getElementById("openGameComparisonButton").style.removeProperty('display');
+	}
+	else {
+		sessionStorage.setItem("firstGameComparison", currentGame.getId());
+	}
+	document.getElementById("addGameComparisonButton").style.display = "None";
+}
