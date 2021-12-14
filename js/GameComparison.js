@@ -1,11 +1,27 @@
 
+let firstGamePageLink = ""
+let secondGamePageLink = ""
+
 function loadComparison(){
 
-	// Get both IDs from the session storage and then get the game detail objects
-	let firstGameId = sessionStorage.getItem("firstGameComparison")
-	let secondGameId = sessionStorage.getItem("secondGameComparison")
-	let games = [new gameDetail(getGameData.byId(`${firstGameId}`)), 
-				 new gameDetail(getGameData.byId(`${secondGameId}`))]
+	// Get both game objects from the tab storage as json strings and parse
+	// them back into workable dictionary objects.
+	let firstGame = JSON.parse(sessionStorage.getItem("firstGameComparison"))
+	let secondGame = JSON.parse(sessionStorage.getItem("secondGameComparison"))
+
+	// Remove items from session storage now after loaded into memory so they 
+	// arent there when we try to compare again.
+	sessionStorage.removeItem("secondGameComparison")
+	sessionStorage.removeItem("firstGameComparison")
+
+	let games = [firstGame,
+				 secondGame];
+
+	firstGamePageLink = `SingleGame.html?id=${firstGame['id']}`;
+	secondGamePageLink = `SingleGame.html?id=${secondGame['id']}`;
+
+	document.getElementById("first_game_name_text").href = firstGamePageLink
+	document.getElementById("second_game_name_text").href = secondGamePageLink
 
 	// Set all of the text fields on the comparison page the same way done
 	// on the single game page but using the 'first' and 'second' field headers
@@ -22,10 +38,35 @@ function loadComparison(){
 
 			let htmlID = `${header}_game_${field}`;
 			if (field == "image") {
-				document.getElementById(htmlID).src = game.getImage();
+				document.getElementById(htmlID).src = game[field];
 			} else {
 				htmlID += '_text'
-				document.getElementById(htmlID).innerText = game.get(field);
+
+				let data = ""
+				if(field === 'players') {
+					let minPlayers = game['minPlayers']
+					let maxPlayers = game['maxPlayers']
+					if(minPlayers === maxPlayers) {
+						data =  `${minPlayers} Players`  
+					}
+					else {
+						data =  `${minPlayers} - ${maxPlayers} Players`  
+					}
+				}
+				else if(field === 'playtime') {
+					let minPlaytime = game['minPlaytime']
+					let maxPlaytime = game['maxPlaytime']
+					if(minPlaytime === maxPlaytime) {
+						data =  `${minPlaytime} Minutes`  
+					}
+					else {
+						data =  `${minPlaytime} - ${maxPlaytime} Players`  
+					}
+				}
+				else {
+					data = game[field];
+				}
+				document.getElementById(htmlID).innerText = data;
 			}
 		}
 	}
@@ -46,8 +87,8 @@ function loadComparison(){
 		document.getElementById(firstGameDocID).classList.remove('gameComparisonBlueBox');
 		document.getElementById(secondGameDocID).classList.remove('gameComparisonBlueBox');
 		
-		let firstGameFieldData = games[0].get(field)
-		let secondGameFieldData = games[1].get(field)
+		let firstGameFieldData = games[0][field]
+		let secondGameFieldData = games[1][field]
 
 		// If either one of the data fields came back undefined we don't want 
 		// to make the comparison so we just set both to blue backgrounds.
@@ -86,20 +127,20 @@ function loadComparison(){
 		let firstGameFieldData = null;
 		let secondGameFieldData = null;
 		if(field === 'players') {
-			firstGameFieldData = games[0].getMaxPlayers()
-			secondGameFieldData = games[1].getMaxPlayers()
+			firstGameFieldData = games[0]['maxPlayers']
+			secondGameFieldData = games[1]['maxPlayers']
 		}
 		else if(field === 'playtime') {
-			firstGameFieldData = games[0].getMaxPlaytime()
-			secondGameFieldData = games[1].getMaxPlaytime()
+			firstGameFieldData = games[0]['maxPlaytime']
+			secondGameFieldData = games[1]['maxPlaytime']
 		}
 		else if(field === 'age') {
-			firstGameFieldData = games[0].age
-			secondGameFieldData = games[1].age
+			firstGameFieldData = games[0][field]
+			secondGameFieldData = games[1][field]
 		}
 		else if(field === 'weight') {
-			firstGameFieldData = games[0].weight
-			secondGameFieldData = games[1].weight
+			firstGameFieldData = games[0][field]
+			secondGameFieldData = games[1][field]
 		}
 
 
@@ -126,12 +167,4 @@ function loadComparison(){
 			}
 		}
 	}
-
-	let comparisonModal = new bootstrap.Modal(document.getElementById('gameComparisonModal'))
-	comparisonModal.show()
-
-	sessionStorage.removeItem("secondGameComparison")
-	sessionStorage.removeItem("firstGameComparison")
-	document.getElementById('openGameComparisonButton').style.display = "None";
-	document.getElementById("addGameComparisonButton").style.removeProperty('display');
 }

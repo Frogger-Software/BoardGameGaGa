@@ -275,11 +275,17 @@ var currentGame;
 function setCurrentGameToComparison() {
 
 	if(sessionStorage.getItem("firstGameComparison")) {
-		sessionStorage.setItem("secondGameComparison", currentGame.getId());
+		sessionStorage.setItem("secondGameComparison", JSON.stringify(currentGame.data));
 		document.getElementById("openGameComparisonButton").style.removeProperty('display');
 	}
 	else {
-		sessionStorage.setItem("firstGameComparison", currentGame.getId());
+		sessionStorage.setItem("firstGameComparison", JSON.stringify(currentGame.data));
 	}
 	document.getElementById("addGameComparisonButton").style.display = "None";
+}
+
+function openGameComparisonWindow() {
+	document.getElementById('openGameComparisonButton').style.display = "None";
+	document.getElementById("addGameComparisonButton").style.removeProperty('display');
+	window.document.location = "gameComparison.html"
 }
