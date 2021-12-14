@@ -1,3 +1,4 @@
+/* General Site CSS */
 *{
     padding: 0;
     margin: 0;
@@ -12,25 +13,30 @@ body {
   margin-bottom: 60px;
   background-color: #EDEDED;	
 }
-
 .navbar{
     background-color: #267EAF;
-
 }
 .titleLogo{
     width: 300px;
 }
-
-.game-card{
-    width: 256px;
-    height: 256px;
-    margin: 10px;
+.content{
+    width: 75%;
 }
-.card-img-top{
-    height: 124px;
-    width: 100%;
-    padding: 10px;
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: max-content;
+  border-top: 1px solid #999999;  
+  background-color: #267EAF;
 }
+.secondary_color{
+    background-color: #38B8FC;
+}
+.tertiary_color{
+    background-color: #89BCC4;
+}
+/* Search Bar */
 .search-menu{
     width: 100%;
     max-width: 120px;
@@ -44,61 +50,13 @@ body {
     width: 20px;
     height: 20px;
     object-fit: cover;
-  }
-.sidebar{
-    Max-height: 100%;
-    width: 25%;
-    max-width: 250px;
-    min-width: 200px;
 }
 
-.content{
-    width: 75%;
-}
+/***************************/
+/*      Game Details       */
+/***************************/
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: max-content;
-  border-top: 1px solid #999999;  
-  background-color: #267EAF;
-}
-
-.secondary_color{
-    background-color: #38B8FC;
-}
-
-.tertiary_color{
-    background-color: #89BCC4;
-}
-
-.detailHeader{
-	/* height: 313px; */
-	/* max-height: 400px; */
-}
-.gd_Pic{
-	border: 1px solid #FFFFFF;
-	max-width: 100%; 
-	width: auto;
-	object-fit: contain;
-	margin:auto;
-	height: 313px;
-}
-.pageTitle{
-	
-	justify-content: center;
-	font-size: small;
-	text-align: justify;
-}
-
-.gd_Title {
-	justify-content: center;
-	font-size: xx-large;
-	text-align: center;
-	color: #267EAF;	
-}
-
+/* hiPanel: The div that gives the different sections an embossed look */
 .hiPanel{
 	background-color: #ffffff;
 	border-radius:8px;
@@ -107,21 +65,49 @@ body {
 	height:auto;
 	width:fit-content;
 }
+.detailHeader{
+    margin-left: auto;
+    margin-right: 0;
+	/* height: 313px; */
+	/* max-height: 400px; */
+}
+/* gd_Pic: The board game picture */
+.gd_Pic{
+	border: 1px solid #FFFFFF;
+	max-width: 30vw; 
+	object-fit: contain;
+	padding: 10px;
+    
+    align-content: center;
+    justify-content: center;
+}
+/* gd_Title - The name of the game */
+.gd_Title {
+	justify-content: center;
+	font-size: xx-large;
+	text-align: center;
+	color: #267EAF;	
+}
+/* playerPabel - The container div for the icon stats [player count, playtime, etc] */
 .playerPanel{
 	height: 100%;
 }
 .gd_iconGroup{
 	margin: 5px;
-	min-width: 120px;
+	min-width: 64px; 
 }
 .gd_icon{
-	min-height: 80%;
+	min-height: 20vh;
 	object-fit: contain;
+    height: 55%;
 }
 .gd_iconLabel{
-	justify-content:center;
 	color: #267EAF;
-	font-size: large;
+	font-size: medium;
+    height: 40%;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
 }
 .rankBox {
 	background-color: #267EAF;	
@@ -159,7 +145,7 @@ body {
 .pubLabel {
 	text-align:left;
 	margin-left: 1em;
-
+    font-size: small;
 }
 .pubData {
 	text-align:right;
@@ -172,18 +158,29 @@ body {
 	font-size: large;
 	
 }
-
-.cvrImgPanel{
-	max-width: 100%;
-	width:fit-content;
-	height: inherit;
+@media (max-width: 1199.98px)  {
+    /* - size LG */
+    .gd_Pic{ background-color: green; }
 }
-
-@include media-breakpoint-up(sm){
-	.gd_pic{
-		margin:auto;
-		height: 200px;
-	}
+@media (max-width: 991.98px){
+    /* - size MD */
+    .gd_Pic{ background-color: yellow; max-width: 60vw; margin: auto; }
+    .hiPanel{ margin:auto; }
+    .ratingBox{ margin-top:10px; }
+    .gd_Title { align-self: center; }
+}
+@media (max-width: 767.98px)  {
+    /* - size SM */
+    .gd_Pic{ background-color: orange; }
+    .gd_iconGroup{ margin-bottom: 0; }
+    .playerPanel{ padding-bottom:0; justify-content: space-between; max-width:60vw;}
+    .publicationFrame{ margin-top:15px; width: 60vw; }
+}
+@media (max-width: 575.98px)  {
+    /* - size XS */
+    .gd_Pic{ background-color: red; }
+    .gd_iconGroup{ min-width:0; }
+    .gd_icon{ min-height:0; }
 }
 
 

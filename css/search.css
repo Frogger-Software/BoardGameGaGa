@@ -22,16 +22,92 @@ body {
     width: 300px;
 }
 
-.game-card{
-    width: 256px;
-    height: 286px;
+/* Dashboard- top5 Cards */
+/* - Size: XS */
+.card-text:last-of-type {
+    position:absolute;
+    bottom: 10px;
+    margin:auto;
+    text-align:center;
+    margin-left: 35vw;
+}    
+.game-card {
+    width: 80vw;
+    height: 340px;
     margin: 10px;
 }
-.card-img-top{
-    height: 124px;
-    width: 100%;
+.card-img-top {
+    object-fit:contain;
+    background-color:#89BCC4;
+    height: 60%;
     padding: 10px;
 }
+@media (min-width: 576px)  {
+    /* - size SM */
+    .game-card{
+        width: 40vw;
+    }
+
+    .card-text:last-of-type{
+        margin-left: 15vw;
+    }
+}
+@media (min-width: 768px)  {
+    /* - size MD */
+    .game-card{
+        width: 32vw;
+    }
+
+    .card-text:last-of-type{
+        margin-left: 12vw;
+    }
+}
+@media (min-width: 992px){
+    /* - size LG */
+    .game-card{
+        width: 20vw;
+    }
+    .card-img-top{
+        height: 156px;
+        padding: 10px;
+    }
+
+    .card-text:last-of-type{
+        margin-left: 7vw;
+    }
+}
+@media (min-width: 1200px)  {
+    /* - size XL */
+    .game-card{
+        width: 18vw;
+    }
+    .card-img-top{
+        height: 156px;
+        padding: 10px;
+    }
+
+    .card-text:last-of-type{
+        margin-left: 7vw;
+    }
+}
+@media (min-width: 1400px) {
+    /* - size 2X */
+    .game-card{
+        width: 256px;
+        height: 286px;
+        margin: 10px;
+    }
+    .card-img-top{
+        height: 124px;
+        width: 100%;
+        padding: 10px;
+    }
+    .card-text:last-of-type{
+        margin-left: 8vw;
+    }
+}
+
+
 .search-menu{
     width: 100%;
     max-width: 120px;

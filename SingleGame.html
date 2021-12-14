@@ -27,7 +27,7 @@ This is a display page for an individual board game.
 </head>
 
 <body>
-	<form class="">
+	<form class="" action="Search.html">
 
 		<div id="HeaderLink"></div>
 
@@ -59,26 +59,24 @@ This is a display page for an individual board game.
 
 			<!-- Game display -->
 			<div id="gameDetails" class="container">
-				<!-- title -->
-				<div class="pageTitle row mx-auto"></div>
 
-				<div class="detailHeader row" style="margin-left: auto;">
+				<div class="detailHeader row">
 
 					<!-- imgBox -->
-					<div class="hiPanel cvrImgPanel col-sm-3 p-0 d-flex flex-column align-items-center">
-						<img class="gd_Pic rounded" id="gd_image" src="ProductImages/35a8e941364169.57a2d95627120.jpg"
+					<div class="hiPanel cvrImgPanel col-lg-3 p-0 d-flex flex-column align-items-center">
+						<img class="gd_Pic rounded" id="gd_image" 
 							alt="board game box" />
 					</div>
 
 					<!-- Rest of detail header: title, rank, player data, publication data -->
-					<div class="container col-sm d-flex flex-column">
+					<div class="container col-lg d-flex flex-column">
 						<div class="row">
 
 							<!-- title -->
-							<div class="gd_Title col-sm mx-auto" id="gd_name">Food Chain Magnate</div>
+							<div class="gd_Title col-md mx-auto" id="gd_name"></div>
 
 							<!-- rankingInfo -->
-							<div class="hiPanel col-sm-4 d-flex flex-row align-items-stretch mb-2">
+							<div class="ratingBox hiPanel col-md-4 d-flex flex-row align-items-stretch mb-2">
 								<div class="rankBox d-flex flex-column justify-content-center">
 									<label class="rbTitle">Rating</label>
 									<label class="rbDetail" id="gd_rating">X.X</label>
@@ -93,7 +91,7 @@ This is a display page for an individual board game.
 						<div class="row flex-fill">
 
 							<!-- playerInfo -->
-							<div class="col-sm d-flex flex-column-reverse">
+							<div class="col-md d-flex flex-column-reverse">
 								<div class="playerPanel hiPanel mt-1 d-flex flex-row">
 									<!-- IconGroup: # Players -->
 									<div class="gd_iconGroup col-sm m-1">
@@ -121,7 +119,7 @@ This is a display page for an individual board game.
 							</div>
 
 							<!-- publicationInfo -->
-							<div class="publicationFrame hiPanel col-sm">
+							<div class="publicationFrame hiPanel col-md">
 								<label class="pubLabel">Designer: </label>
 								<label class="pubData" id="gd_designer">Names of Designers</label>
 								<label class="pubLabel">Artist: </label>
