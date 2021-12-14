@@ -74,11 +74,10 @@ body {
 /* gd_Pic: The board game picture */
 .gd_Pic{
 	border: 1px solid #FFFFFF;
-	max-width: 100%; 
-	width: auto;
+	max-width: 30vw; 
 	object-fit: contain;
 	padding: 10px;
-	height: 50vh;
+    
     align-content: center;
     justify-content: center;
 }
@@ -159,75 +158,29 @@ body {
 	font-size: large;
 	
 }
-
-.cvrImgPanel{
-	max-width: 100%;
-	width:fit-content;
-	height: inherit;
-}
-@media (min-width: 576px)  {
-    /* - size SM */
-    .game-card{
-        width: 40vw;
-    }
-
-    .card-text:last-of-type{
-        margin-left: 15vw;
-    }
-}
-@media (min-width: 768px)  {
-    /* - size MD */
-    .game-card{
-        width: 32vw;
-    }
-
-    .card-text:last-of-type{
-        margin-left: 12vw;
-    }
-}
-@media (min-width: 992px){
+@media (max-width: 1199.98px)  {
     /* - size LG */
-    .game-card{
-        width: 20vw;
-    }
-    .card-img-top{
-        height: 156px;
-        padding: 10px;
-    }
-
-    .card-text:last-of-type{
-        margin-left: 7vw;
-    }
+    .gd_Pic{ background-color: green; }
 }
-@media (min-width: 1200px)  {
-    /* - size XL */
-    .game-card{
-        width: 18vw;
-    }
-    .card-img-top{
-        height: 156px;
-        padding: 10px;
-    }
-
-    .card-text:last-of-type{
-        margin-left: 7vw;
-    }
+@media (max-width: 991.98px){
+    /* - size MD */
+    .gd_Pic{ background-color: yellow; max-width: 60vw; margin: auto; }
+    .hiPanel{ margin:auto; }
+    .ratingBox{ margin-top:10px; }
+    .gd_Title { align-self: center; }
 }
-@media (min-width: 1400px) {
-    /* - size 2X */
-    .game-card{
-        width: 256px;
-        height: 286px;
-        margin: 10px;
-    }
-    .card-img-top{
-        height: 124px;
-        width: 100%;
-        padding: 10px;
-    }
-    .card-text:last-of-type{
-        margin-left: 8vw;
-    }
+@media (max-width: 767.98px)  {
+    /* - size SM */
+    .gd_Pic{ background-color: orange; }
+    .gd_iconGroup{ margin-bottom: 0; }
+    .playerPanel{ padding-bottom:0; justify-content: space-between; max-width:60vw;}
+    .publicationFrame{ margin-top:15px; width: 60vw; }
+}
+@media (max-width: 575.98px)  {
+    /* - size XS */
+    .gd_Pic{ background-color: red; }
+    .gd_iconGroup{ min-width:0; }
+    .gd_icon{ min-height:0; }
 }
 
 
