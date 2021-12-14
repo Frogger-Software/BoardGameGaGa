@@ -745,7 +745,7 @@ In Captain Sonar, you and your teammates control a state-of-the-art submarine an
 
     // Called from the results verification page to swap back to the data entry page.
     function backToForm() {
-      document.getElementById('SubmissionFormContainer').removeProperty('display');
+      document.getElementById('SubmissionFormContainer').style.removeProperty('display');
       document.getElementById('ReviewForm').style.display = "None";
 
       setTimeout(function () {
