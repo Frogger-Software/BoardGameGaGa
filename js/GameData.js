@@ -56,7 +56,7 @@ var Games = [
     rank: "Not Ranked",
     weight: "2",
     Genre: "2",
-    price: "25"
+    price: "39.99"
   }, {
     id: "1",
     yearPublished: "2022",
@@ -76,7 +76,7 @@ var Games = [
     rank: "Not Ranked",
     weight: "2",
     Genre: "2",
-    price: "50"
+    price: "39.99"
   }, {
     id: "2",
     yearPublished: "2017",
@@ -100,7 +100,7 @@ var Games = [
     rank: "1580",
     weight: "2.6",
     Genre: "2",
-    price: "85"
+    price: "140"
   }, {
     id: "3",
     yearPublished: "2015",
@@ -129,7 +129,7 @@ var Games = [
     rank: "5",
     weight: "1.5",
     Genre: "1",
-    price: "45"
+    price: "79.99"
   }, {
     id: "4",
     yearPublished: "2016",
@@ -152,7 +152,7 @@ var Games = [
     rank: "186",
     weight: "3",
     Genre: "1",
-    price: "37"
+    price: "69.95"
   }, {
     id: "5",
     yearPublished: "2018",
@@ -185,7 +185,7 @@ var Games = [
     rank: "98",
     weight: "4",
     Genre: "3",
-    price: "25"
+    price: "79.99"
   }, {
     id: "6",
     yearPublished: "2016",
@@ -211,7 +211,7 @@ var Games = [
     rank: "168",
     weight: "3",
     Genre: "1",
-    price: "68"
+    price: "109.99"
   }, {
     id: "7",
     yearPublished: "2017",
@@ -238,7 +238,7 @@ var Games = [
     rank: "9",
     weight: "1",
     Genre: "2",
-    price: "38"
+    price: "99.99"
   }
   
   ];
