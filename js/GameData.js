@@ -55,7 +55,7 @@ var Games = [
     rating: "0",
     rank: "Not Ranked",
     weight: "2",
-    Genre: "2",
+    Genre: "3",
     price: "39.99"
   }, {
     id: "1",
@@ -75,7 +75,7 @@ var Games = [
     rating: "0",
     rank: "Not Ranked",
     weight: "2",
-    Genre: "2",
+    Genre: "3",
     price: "39.99"
   }, {
     id: "2",
@@ -128,7 +128,7 @@ var Games = [
     rating: "4.8",
     rank: "5",
     weight: "1.5",
-    Genre: "1",
+    Genre: "2",
     price: "79.99"
   }, {
     id: "4",
@@ -151,7 +151,7 @@ var Games = [
     rating: "5",
     rank: "186",
     weight: "3",
-    Genre: "1",
+    Genre: "3",
     price: "69.95"
   }, {
     id: "5",
@@ -210,7 +210,7 @@ var Games = [
     rating: "3.9",
     rank: "168",
     weight: "3",
-    Genre: "1",
+    Genre: "3",
     price: "109.99"
   }, {
     id: "7",
@@ -237,8 +237,50 @@ var Games = [
     rating: "4.2",
     rank: "9",
     weight: "1",
-    Genre: "2",
+    Genre: "3",
     price: "99.99"
+  }, {
+    id: "8",
+    yearPublished: "2020",
+    minPlayers: "2",
+    maxPlayers: "6",
+    minPlaytime: "30",
+    maxPlaytime: "45",
+    age: "10",
+    name: "Mysterium Park",
+    description: 
+    'Welcome to Mysterium Park!<br/>Its cotton candies, its circus, its dark secrets...<br/><br/>The park&rsquo;s former director has disappeared, but the investigation came to nothing. Since that night, weird things are happening on the fairground. As psychics, you&rsquo;re convinced that a ghost haunts this carnival... You&rsquo;re now intent on giving it a chance to reveal the truth.<br/><br/>In this cooperative stand-alone game, the ghost sends visions with illustrated cards. The psychics try to interpret them in order to rule out certain suspects and locations. Then, they&rsquo;ll seize their only chance to piece together what happened to the director. You have only six nights before the carnival leaves town... Open your minds and find the truth!<br/><br/>Set in the lights of a 1950\'s US fairground, Mysterium Park shares the same core mechanism with the famous award-winning game it reimplements, though bringing a different approach: it is smaller and faster, thanks to very quick setup and simplified rules.<br/><br/>Mysterium is a milestone in immersive and eye-catching experiences close to role-playing; with Mysterium Park, you can enjoy the heart of it in a more condensed way.<br/><br/>Mysterium Park will be released at the end of 2020.<br/><br/>&mdash; description from the publisher<br/><br/>',
+    ShortDesc: "There was a murder at the carnival, and you and your firend must solve it!",
+    image: "https://cf.geekdo-images.com/U2CYPYgIEC1cLF45Rh0UGw__original/img/472oJ1mqGHWxFxuOsnXFiZBshUc=/0x0/filters:format(jpeg)/pic5581038.jpg",
+    publisher: ["Libellud", "Publisher"],
+    designer: ["Oleksandr Nevskiy", "Oleg Sidorenko"],
+    artist: ["Xavier Collette"],
+    rating: "7.34",
+    rank: "1237",
+    weight: "1.53",
+    Genre: "1",
+    price: "29.99"
+  }, {
+    id: "9",
+    yearPublished: "2021",
+    minPlayers: "1",
+    maxPlayers: "4",
+    minPlaytime: "30",
+    maxPlaytime: "45",
+    age: "10",
+    name: "Cascadia",
+    description: 
+    'Cascadia is a puzzly tile-laying and token-drafting game featuring the habitats and wildlife of the Pacific Northwest.<br/><br/>In the game, you take turns building out your own terrain area and populating it with wildlife. You start with three hexagonal habitat tiles (with five types of habitat in the game), and on a turn you choose a new habitat tile that\'s paired with a wildlife token, then place that tile next to your other ones and place the wildlife token on an appropriate habitat. (Each tile depicts 1-3 types of wildlife from the five types in the game, and you can place at most one tile on a habitat.) Four tiles are on display, with each tile being paired at random with a wildlife token, so you must make the best of what\'s available &mdash; unless you have a nature token to spend so that you can pick your choice of each item.<br/><br/>Ideally you can place habitat tiles to create matching terrain that reduces fragmentation and creates wildlife corridors, mostly because you score for the largest area of each type of habitat at game\'s end, with a bonus if your group is larger than each other player\'s. At the same time, you want to place wildlife tokens so that you can maximize the number of points scored by them, with the wildlife goals being determined at random by one of the three scoring cards for each type of wildlife. Maybe hawks want to be separate from other hawks, while foxes want lots of different animals surrounding them and bears want to be in pairs. Can you make it happen?<br/><br/>',
+    ShortDesc: "Build your habitats to best feed the wildlife!",
+    image: "https://cf.geekdo-images.com/MjeJZfulbsM1DSV3DrGJYA__original/img/B374C04Eip7fmQBGJzgiOTp-jyQ=/0x0/filters:format(jpeg)/pic5100691.jpg",
+    publisher: ["Flatout Games", "Alderac Entertainment Group"],
+    designer: ["Randy Flynn"],
+    artist: ["Beth Sobel"],
+    rating: "8.05",
+    rank: "255",
+    weight: "1.99",
+    Genre: "3",
+    price: "49.99"
   }
   
   ];
