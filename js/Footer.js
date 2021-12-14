@@ -1,3 +1,13 @@
+/*************************************************************
+Footer.js - the javascript for all Footers
+--------------------------------------------------------------
+Austin Powers - Header
+12/01/2021 - 12/14/2021
+
+--------------------------------------------------------------
+This will append the footer to where a div with id = "FooterLink" is located.
+
+*************************************************************/
 $().ready(function () {
 
     $('#FooterLink').append($(

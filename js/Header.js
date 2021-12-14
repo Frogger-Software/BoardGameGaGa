@@ -1,5 +1,19 @@
+/*************************************************************
+Header.js - the javascript for all Headers
+--------------------------------------------------------------
+Austin Powers - Header
+Cameron Robinson - Modals
+12/01/2021 - 12/14/2021
+
+--------------------------------------------------------------
+This will append the header to where a div with id = "HeaderLink" is located.
+This will also contain the Register and Login Modals and thier validation functions
+ 
+*************************************************************/
 $().ready(function () {
 
+
+    // Append The header bar and modals at the Link Tag
     $('#HeaderLink').append($(
         '<nav class="navbar navbar-expand-lg">' +
             '<div class="container-fluid">' +
@@ -36,6 +50,7 @@ $().ready(function () {
             '</div>' +
           '</nav>' +
 
+          // Register Modal
           '<div class="modal" id="registerModal" tabindex="-1" aria-hidden="true">' +
           '<div class="modal-dialog modal-dialog-centered">' +
             '<div class="modal-content" style="border-radius: 40px;">' +
@@ -84,6 +99,8 @@ $().ready(function () {
           '</div>' +
         '</div>' +
 
+
+        //Login Modal
         '<div class="modal" id="loginModal" tabindex="-1" aria-hidden="true" >' +
         '<div class="modal-dialog modal-dialog-centered">' +
           '<div class="modal-content" style="border-radius: 40px;">' +

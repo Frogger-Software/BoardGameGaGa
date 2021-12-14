@@ -1,3 +1,13 @@
+/*************************************************************
+Dashboard.js - the javascript for the Dashboard Top 5 Games
+--------------------------------------------------------------
+Austin Powers - Header
+Cameron Robinson - Modals
+12/01/2021 - 12/14/2021
+
+--------------------------------------------------------------
+This will take an array of 'Top game ids' and display only those from the master list of GameData
+*************************************************************/
 'use strict';
 var top5Games = '#top5Games'
 const topFiveIds = ["0","1"] 
