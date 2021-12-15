@@ -276,7 +276,7 @@ function setCurrentGameToComparison() {
 
 	if(sessionStorage.getItem("firstGameComparison")) {
 		sessionStorage.setItem("secondGameComparison", JSON.stringify(currentGame.data));
-		document.getElementById("openGameComparisonButton").style.removeProperty('display');
+		document.getElementById("openGameComparisonButton").innerHTML = "Added to Comparison";
 	}
 	else {
 		sessionStorage.setItem("firstGameComparison", JSON.stringify(currentGame.data));
