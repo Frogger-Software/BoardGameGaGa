@@ -27,19 +27,19 @@ There are three categories of javascript covered in this file:
 //	- description	- id			- designers	(as array)	
 // 	- artists (as Array)			- publisher (as Array)		
 class gameDetail {
-	constructor(data){
-		
+	constructor(data) {
+
 		// Constructor Phase One - (this.data) Data Validation
 		this.data = data;
 		let fieldNames = ["id", "name", "image", "minPlayers", "maxPlayers", "minPlaytime", "maxPlaytime", "age", "weight", "rating", "rank", "description", "yearPublished", "designer", "artist", "publisher"];
 		this.fields = { list: fieldNames };
 		for (index in fieldNames) {
-			
+
 			// First, add the field to our field list
 			this.fields[fieldNames[index]] = fieldNames[index];
-			
+
 			// Second, check this attribute exists. If not, set a default value.
-			if (! fieldNames[index] in this.data ) {
+			if (!fieldNames[index] in this.data) {
 				// If index > 10, then we have reached the last three variables, all of which are stored as arrays.
 				if (index > 11) {
 					this.data[fieldNames[index]] = [];
@@ -48,28 +48,28 @@ class gameDetail {
 				}
 			}
 		}
-		
-		
+
+
 		// Constructor Phase Two - (this.utility) Utility Functions
 		// Note: these functions are designed to be mainly useful to this class.
 		//		They should not need to be referenced from outside this object.
 		this.utility = {
-			formatDescription: function(text){
+			formatDescription: function (text) {
 				let returnString = "<p>" + text + "</p>";
-				while (returnString.includes("<br /><br />")){
+				while (returnString.includes("<br /><br />")) {
 					returnString = returnString.replace("<br /><br />", "<br />");
 				}
-				while (returnString.includes("<br />")){
+				while (returnString.includes("<br />")) {
 					returnString = returnString.replace("<br />", "</p><p>");
 				}
 				return returnString;
-			}, 
-			listToString: function(list){
+			},
+			listToString: function (list) {
 				if (list.length == 1) {
 					return list[0];
 				} else if (list.length == 0) {
 					return "N/A";
-				} else {		
+				} else {
 					let listString = list[0];
 					let currentIndex = 1;
 					while (currentIndex < list.length) {
@@ -77,10 +77,10 @@ class gameDetail {
 						++currentIndex;
 					}
 					return listString;
-				}	
-			}			
+				}
+			}
 		};
-		
+
 	}
 	getId() { return this.data.id; }
 	getName() { return this.data.name; }
@@ -91,12 +91,12 @@ class gameDetail {
 	getMinPlaytime() { return this.data.minPlaytime; }
 	getMaxPlaytime() { return this.data.maxPlaytime; }
 	getPlaytime() { return this.data.minPlaytime + " - " + this.data.maxPlaytime + " Minutes"; }
-	getAge() { 
+	getAge() {
 		let ageString = "Ages " + this.data.age;
 		if (!ageString.includes('+')) { ageString = ageString + '+'; }
 		return ageString;
 	}
-	getWeight() { return "Weight: " + this.data.weight + "/5.00"; }	
+	getWeight() { return "Weight: " + this.data.weight + "/5.00"; }
 	getRating() { return this.data.rating; }
 	getRank() { if (this.data.rank == "Not Ranked") { return "N/A"; } return this.data.rank; }
 	getYearPublished() { return this.data.yearPublished; }
@@ -104,27 +104,27 @@ class gameDetail {
 	getDesigner() { return this.utility.listToString(this.data.designer); }
 	getArtist() { return this.utility.listToString(this.data.artist); }
 	getPublisher() { return this.utility.listToString(this.data.publisher); }
-	get(fieldName) { 
-		switch(fieldName) {
-			case "id": 				return this.getId(); 
-			case "name": 			return this.getName(); 
-			case "image": 			return this.getImage(); 
-			case "minPlayers": 		return this.getMinPlayers(); 
-			case "maxPlayers": 		return this.getMaxPlayers(); 
-			case "minPlaytime": 	return this.getMinPlaytime(); 
-			case "age": 			return this.getAge(); 
-			case "weight": 			return this.getWeight(); 
-			case "rating": 			return this.getRating(); 
-			case "rank": 			return this.getRank(); 
-			case "description": 	return this.getDescription(); 
-			case "designer": 		return this.getDesigner(); 
-			case "artist": 			return this.getArtist(); 
-			case "publisher": 		return this.getPublisher(); 
-			case "maxPlaytime": 	return this.getMaxPlaytime(); 
-			case "yearPublished": 	return this.getYearPublished(); 
-			case "playtime": 		return this.getPlaytime(); 
-			case "players": 		return this.getPlayers(); 
-			default:				return "Unrecognized Fieldname";
+	get(fieldName) {
+		switch (fieldName) {
+			case "id": return this.getId();
+			case "name": return this.getName();
+			case "image": return this.getImage();
+			case "minPlayers": return this.getMinPlayers();
+			case "maxPlayers": return this.getMaxPlayers();
+			case "minPlaytime": return this.getMinPlaytime();
+			case "age": return this.getAge();
+			case "weight": return this.getWeight();
+			case "rating": return this.getRating();
+			case "rank": return this.getRank();
+			case "description": return this.getDescription();
+			case "designer": return this.getDesigner();
+			case "artist": return this.getArtist();
+			case "publisher": return this.getPublisher();
+			case "maxPlaytime": return this.getMaxPlaytime();
+			case "yearPublished": return this.getYearPublished();
+			case "playtime": return this.getPlaytime();
+			case "players": return this.getPlayers();
+			default: return "Unrecognized Fieldname";
 		}
 	}
 }
@@ -177,29 +177,29 @@ var GAME_FIRSTRAT = {
 // template game will be returned (getGameData.template())
 //
 var getGameData = {
-	fromQueryString: function(qsp) {
+	fromQueryString: function (qsp) {
 		if ("name" in qsp) {
 			return getGameData.byName(qsp["name"]);
 		} else if ("id" in qsp) {
-			return getGameData.byId(qsp["id"]);			
+			return getGameData.byId(qsp["id"]);
 		} else {
 			return getGameData.template();
-		}			
+		}
 	},
-	byName: function(name) {
+	byName: function (name) {
 		// TODO: Retrieve a game by its name
 	},
-	byId: function(id) {
+	byId: function (id) {
 		// TODO: Retrieve a game by its id
 		console.log(id)
-		for (var i = 0; i < Games.length; i++){
-			if(Games[i].id === id){
+		for (var i = 0; i < Games.length; i++) {
+			if (Games[i].id === id) {
 				console.log(Games[i])
 				return Games[i];
 			}
 		}
 	},
-	template: function() { return GAME_FIRSTRAT; }
+	template: function () { return GAME_FIRSTRAT; }
 };
 
 // loadGame(game)
@@ -213,8 +213,8 @@ var getGameData = {
 // nearly identically to the ids of the DOM elements, with 
 // the only difference being that the ids start with "gd_".
 //
-function loadGame(game){
-	let gd_fields = ["image", "description", "name", "rating", "rank", "players", "playtime", "age", "weight", "designer", "artist", "publisher", "yearPublished" ];
+function loadGame(game) {
+	let gd_fields = ["image", "description", "name", "rating", "rank", "players", "playtime", "age", "weight", "designer", "artist", "publisher", "yearPublished"];
 	for (index in gd_fields) {
 		let field = gd_fields[index];
 		let htmlID = "gd_" + field;
@@ -254,7 +254,7 @@ function getQueryStringParameters() {
 // initPage()
 //	Rips the name from the query and begins the loading process
 // for that specific game.
-function initPage(){
+function initPage() {
 	let qsp = getQueryStringParameters();
 	let game_JSON = getGameData.fromQueryString(qsp);
 	let game_gd = new gameDetail(game_JSON);
@@ -274,14 +274,15 @@ var currentGame;
  */
 function setCurrentGameToComparison() {
 
-	if(sessionStorage.getItem("firstGameComparison")) {
+	document.getElementById("addGameComparisonButton").innerHTML = `<div class="card-body"">Added to Comparison</div>`;
+	if (sessionStorage.getItem("firstGameComparison")) {
 		sessionStorage.setItem("secondGameComparison", JSON.stringify(currentGame.data));
-		document.getElementById("openGameComparisonButton").innerHTML = "Added to Comparison";
+		document.getElementById("openGameComparisonButton").style.removeProperty('display');
+		document.getElementById("addGameComparisonButton").style.display = "None";
 	}
 	else {
 		sessionStorage.setItem("firstGameComparison", JSON.stringify(currentGame.data));
 	}
-	document.getElementById("addGameComparisonButton").style.display = "None";
 }
 
 function openGameComparisonWindow() {
