@@ -73,13 +73,11 @@ body {
 }
 /* gd_Pic: The board game picture */
 .gd_Pic{
-	border: 1px solid #FFFFFF;
-	max-width: 30vw; 
-	object-fit: contain;
-	padding: 10px;
     
-    align-content: center;
-    justify-content: center;
+    object-fit:contain;
+    background-color:#89BCC4;
+	max-width: 30vw; 
+	max-height: 52vh; 
 }
 /* gd_Title - The name of the game */
 .gd_Title {
